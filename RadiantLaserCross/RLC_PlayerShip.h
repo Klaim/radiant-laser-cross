@@ -17,12 +17,15 @@ namespace rlc
 		: public Ship< MAX_PLAYER_GUNS >
 	{
 	public:
-		
-		void render();
-		void update();
+
+		PlayerShip();
 		
 	private:
-	
+
+		void do_render();
+		void do_update();
+
+		void update_move();
 	};
 	
 }

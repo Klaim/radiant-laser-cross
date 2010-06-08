@@ -13,6 +13,12 @@
     <Filter Include="Game\GameSession\GameEntity">
       <UniqueIdentifier>{2b8a9d14-1ba9-4443-bb5b-fe7727742c1f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\GameSession\GameEntity\Gunship">
+      <UniqueIdentifier>{1433cf27-159c-4493-a863-dbc919812469}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameSession\GameEntity\PlayerShip">
+      <UniqueIdentifier>{665be92d-adce-42e3-bdb3-a3d94aa65131}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RLC_Game.h">
@@ -43,16 +49,16 @@
       <Filter>Game\GameSession</Filter>
     </ClInclude>
     <ClInclude Include="RLC_Ship.h">
-      <Filter>Game\GameSession\GameEntity</Filter>
-    </ClInclude>
-    <ClInclude Include="RLC_Bullet.h">
-      <Filter>Game\GameSession\GameEntity</Filter>
-    </ClInclude>
-    <ClInclude Include="RLC_PlayerShip.h">
-      <Filter>Game\GameSession\GameEntity</Filter>
+      <Filter>Game\GameSession\GameEntity\Gunship</Filter>
     </ClInclude>
     <ClInclude Include="RLC_Gun.h">
-      <Filter>Game\GameSession\GameEntity</Filter>
+      <Filter>Game\GameSession\GameEntity\Gunship</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_Bullet.h">
+      <Filter>Game\GameSession\GameEntity\Gunship</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_PlayerShip.h">
+      <Filter>Game\GameSession\GameEntity\PlayerShip</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -75,8 +81,17 @@
     <ClCompile Include="RLC_GameScene.cpp">
       <Filter>Game\GameSession</Filter>
     </ClCompile>
+    <ClCompile Include="RLC_Bullet.cpp">
+      <Filter>Game\GameSession\GameEntity\Gunship</Filter>
+    </ClCompile>
     <ClCompile Include="RLC_PlayerShip.cpp">
+      <Filter>Game\GameSession\GameEntity\PlayerShip</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_GameEntity.cpp">
       <Filter>Game\GameSession\GameEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_Gun.cpp">
+      <Filter>Game\GameSession\GameEntity\Gunship</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

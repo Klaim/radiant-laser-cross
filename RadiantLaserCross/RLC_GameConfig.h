@@ -19,7 +19,7 @@ namespace rlc
 
 	const float TICK_TIME = 1.0f / 60.0f;
 
-	const float PLAYER_SHIP_SPEED = 4.0f;
+	const float PLAYER_SHIP_SPEED = 5.0f;
 
 }
 
