@@ -1,0 +1,172 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{C4DFA50D-5BF4-460B-91ED-E2A328E84425}</ProjectGuid>
+    <RootNamespace>GCore</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.30319.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(ProjectDir)..\Build\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">$(Configuration)\</IntDir>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(ProjectDir)..\Build\$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">$(Configuration)\</IntDir>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;GCORE_SOURCE;_SCL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <MinimalRebuild>true</MinimalRebuild>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <SmallerTypeCheck>false</SmallerTypeCheck>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <PreprocessorDefinitions>WIN32;NDEBUG;_LIB;GCORE_SOURCE;_SCL_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FloatingPointModel>Fast</FloatingPointModel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+    </ClCompile>
+    <Link>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <DataExecutionPrevention>
+      </DataExecutionPrevention>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="GC_Application.cpp" />
+    <ClCompile Include="GC_Console.cpp" />
+    <ClCompile Include="GC_ConsoleCmd_Help.cpp" />
+    <ClCompile Include="GC_ConsoleCmd_PhaseControl.cpp" />
+    <ClCompile Include="GC_ConsoleCmd_TaskControl.cpp" />
+    <ClCompile Include="GC_Log.cpp" />
+    <ClCompile Include="GC_LogManager.cpp" />
+    <ClCompile Include="GC_Phase.cpp" />
+    <ClCompile Include="GC_PhaseManager.cpp" />
+    <ClCompile Include="GC_Profiler.cpp" />
+    <ClCompile Include="GC_ChronicTask.cpp" />
+    <ClCompile Include="GC_Task.cpp" />
+    <ClCompile Include="GC_TaskManager.cpp" />
+    <ClCompile Include="GC_TimedTask.cpp" />
+    <ClCompile Include="GC_Clock.cpp" />
+    <ClCompile Include="GC_ClockManager.cpp" />
+    <ClCompile Include="GC_Timer.cpp" />
+    <ClCompile Include="GC_TimerManager.cpp" />
+    <ClCompile Include="GC_Task_ClockUpdate.cpp" />
+    <ClCompile Include="GC_Task_TimerUpdate.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GC_Application.h" />
+    <ClInclude Include="GC_Console.h" />
+    <ClInclude Include="GC_ConsoleCmd_Help.h" />
+    <ClInclude Include="GC_ConsoleCmd_PhaseControl.h" />
+    <ClInclude Include="GC_ConsoleCmd_TaskControl.h" />
+    <ClInclude Include="GC_ConsoleCommand.h" />
+    <ClInclude Include="GC_DataEvent.h" />
+    <ClInclude Include="GC_Event.h" />
+    <ClInclude Include="GC_EventListener.h" />
+    <ClInclude Include="GC_EventManager.h" />
+    <ClInclude Include="GC_Task_EventProcess.h" />
+    <ClInclude Include="GC_BezierCurve.h" />
+    <ClInclude Include="GC_Curve.h" />
+    <ClInclude Include="GC_Line.h" />
+    <ClInclude Include="GC_SpaceStateUtil.h" />
+    <ClInclude Include="GC_DynamicInterpolator.h" />
+    <ClInclude Include="GC_Interpolator.h" />
+    <ClInclude Include="GC_RailInterpolator.h" />
+    <ClInclude Include="GC_TrajectoryControl_Path.h" />
+    <ClInclude Include="GC_TrajectoryControl_Target.h" />
+    <ClInclude Include="GC_RelativityControl_Speed.h" />
+    <ClInclude Include="GC_RelativityControl_TimeBased.h" />
+    <ClInclude Include="GC_Log.h" />
+    <ClInclude Include="GC_LogListener.h" />
+    <ClInclude Include="GC_LogManager.h" />
+    <ClInclude Include="GC_Phase.h" />
+    <ClInclude Include="GC_PhaseManager.h" />
+    <ClInclude Include="GC_Profiler.h" />
+    <ClInclude Include="..\UTF8cpp\source\utf8.h" />
+    <ClInclude Include="..\UTF8cpp\source\utf8\checked.h" />
+    <ClInclude Include="..\UTF8cpp\source\utf8\core.h" />
+    <ClInclude Include="..\UTF8cpp\source\utf8\unchecked.h" />
+    <ClInclude Include="GC_ChronicTask.h" />
+    <ClInclude Include="GC_ProxyTask.h" />
+    <ClInclude Include="GC_Task.h" />
+    <ClInclude Include="GC_TaskManager.h" />
+    <ClInclude Include="GC_TaskProperties.h" />
+    <ClInclude Include="GC_TimedTask.h" />
+    <ClInclude Include="GC_Clock.h" />
+    <ClInclude Include="GC_ClockManager.h" />
+    <ClInclude Include="GC_FixedTimeProvider.h" />
+    <ClInclude Include="GC_Time.h" />
+    <ClInclude Include="GC_Timer.h" />
+    <ClInclude Include="GC_TimeReference.h" />
+    <ClInclude Include="GC_TimerManager.h" />
+    <ClInclude Include="GC_Task_ClockUpdate.h" />
+    <ClInclude Include="GC_Task_TimerUpdate.h" />
+    <ClInclude Include="GC_Common.h" />
+    <ClInclude Include="GC_CrossPlatform.h" />
+    <ClInclude Include="GC_Exception.h" />
+    <ClInclude Include="GC_Singleton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TODO_GCore.txt" />
+    <None Include="VA_HeaderTemplate.txt" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

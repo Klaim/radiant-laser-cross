@@ -1,0 +1,110 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sfml-system", "SFML\build\vc2008\sfml-system.vcxproj", "{C061A27D-7CA0-4179-9869-672FA04A86A8}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sfml-window", "SFML\build\vc2008\sfml-window.vcxproj", "{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sfml-graphics", "SFML\build\vc2008\sfml-graphics.vcxproj", "{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sfml-audio", "SFML\build\vc2008\sfml-audio.vcxproj", "{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SFML", "SFML", "{C6D28C64-6974-41A6-97C2-FEB2438C7533}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "RadiantLaserCross", "RadiantLaserCross\RadiantLaserCross.vcxproj", "{FE392E8E-25B1-454F-905F-72FC117E7852}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "GCore", "GCore\GCore\GCore.vcxproj", "{C4DFA50D-5BF4-460B-91ED-E2A328E84425}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug DLL|Win32 = Debug DLL|Win32
+		Debug static|Win32 = Debug static|Win32
+		Debug|Win32 = Debug|Win32
+		Release DLL|Win32 = Release DLL|Win32
+		Release static|Win32 = Release static|Win32
+		Release|Win32 = Release|Win32
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Debug DLL|Win32.ActiveCfg = Debug DLL|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Debug DLL|Win32.Build.0 = Debug DLL|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Debug static|Win32.ActiveCfg = Debug static|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Debug static|Win32.Build.0 = Debug static|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Debug|Win32.ActiveCfg = Debug static|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Debug|Win32.Build.0 = Debug static|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Release DLL|Win32.ActiveCfg = Release DLL|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Release DLL|Win32.Build.0 = Release DLL|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Release static|Win32.ActiveCfg = Release static|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Release static|Win32.Build.0 = Release static|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Release|Win32.ActiveCfg = Release static|Win32
+		{C061A27D-7CA0-4179-9869-672FA04A86A8}.Release|Win32.Build.0 = Release static|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Debug DLL|Win32.ActiveCfg = Debug DLL|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Debug DLL|Win32.Build.0 = Debug DLL|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Debug static|Win32.ActiveCfg = Debug static|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Debug static|Win32.Build.0 = Debug static|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Debug|Win32.ActiveCfg = Debug static|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Debug|Win32.Build.0 = Debug static|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Release DLL|Win32.ActiveCfg = Release DLL|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Release DLL|Win32.Build.0 = Release DLL|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Release static|Win32.ActiveCfg = Release static|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Release static|Win32.Build.0 = Release static|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Release|Win32.ActiveCfg = Release static|Win32
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED}.Release|Win32.Build.0 = Release static|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Debug DLL|Win32.ActiveCfg = Debug DLL|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Debug DLL|Win32.Build.0 = Debug DLL|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Debug static|Win32.ActiveCfg = Debug static|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Debug static|Win32.Build.0 = Debug static|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Debug|Win32.ActiveCfg = Debug static|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Debug|Win32.Build.0 = Debug static|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Release DLL|Win32.ActiveCfg = Release DLL|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Release DLL|Win32.Build.0 = Release DLL|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Release static|Win32.ActiveCfg = Release static|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Release static|Win32.Build.0 = Release static|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Release|Win32.ActiveCfg = Release static|Win32
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B}.Release|Win32.Build.0 = Release static|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Debug DLL|Win32.ActiveCfg = Debug DLL|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Debug DLL|Win32.Build.0 = Debug DLL|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Debug static|Win32.ActiveCfg = Debug static|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Debug static|Win32.Build.0 = Debug static|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Debug|Win32.ActiveCfg = Debug static|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Debug|Win32.Build.0 = Debug static|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Release DLL|Win32.ActiveCfg = Release DLL|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Release DLL|Win32.Build.0 = Release DLL|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Release static|Win32.ActiveCfg = Release static|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Release static|Win32.Build.0 = Release static|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Release|Win32.ActiveCfg = Release static|Win32
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2}.Release|Win32.Build.0 = Release static|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Debug DLL|Win32.ActiveCfg = Debug|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Debug DLL|Win32.Build.0 = Debug|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Debug static|Win32.ActiveCfg = Debug|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Debug static|Win32.Build.0 = Debug|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Debug|Win32.Build.0 = Debug|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Release DLL|Win32.ActiveCfg = Release|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Release DLL|Win32.Build.0 = Release|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Release static|Win32.ActiveCfg = Release|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Release static|Win32.Build.0 = Release|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Release|Win32.ActiveCfg = Release|Win32
+		{FE392E8E-25B1-454F-905F-72FC117E7852}.Release|Win32.Build.0 = Release|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Debug DLL|Win32.ActiveCfg = Debug|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Debug DLL|Win32.Build.0 = Debug|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Debug static|Win32.ActiveCfg = Debug|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Debug static|Win32.Build.0 = Debug|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Debug|Win32.ActiveCfg = Debug|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Debug|Win32.Build.0 = Debug|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Release DLL|Win32.ActiveCfg = Release|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Release DLL|Win32.Build.0 = Release|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Release static|Win32.ActiveCfg = Release|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Release static|Win32.Build.0 = Release|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Release|Win32.ActiveCfg = Release|Win32
+		{C4DFA50D-5BF4-460B-91ED-E2A328E84425}.Release|Win32.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0F9CE5F0-4D89-4314-9147-8AAB1B8842ED} = {C6D28C64-6974-41A6-97C2-FEB2438C7533}
+		{FA4620B1-393A-4719-9BB4-3BC8CAA70C4B} = {C6D28C64-6974-41A6-97C2-FEB2438C7533}
+		{B1BDA469-E6A7-4AF7-BDF9-EDDD7AD979A2} = {C6D28C64-6974-41A6-97C2-FEB2438C7533}
+		{C061A27D-7CA0-4179-9869-672FA04A86A8} = {C6D28C64-6974-41A6-97C2-FEB2438C7533}
+	EndGlobalSection
+EndGlobal
