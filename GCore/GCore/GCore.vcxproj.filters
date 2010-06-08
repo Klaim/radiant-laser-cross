@@ -1,0 +1,272 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Application">
+      <UniqueIdentifier>{4d1b66a5-cc74-4426-8831-80c1270b509b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Console">
+      <UniqueIdentifier>{ef598c1a-f582-451b-887f-2f08e901c778}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Event">
+      <UniqueIdentifier>{abe08d30-35e0-4b07-a3f0-f0f783163435}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Geometry">
+      <UniqueIdentifier>{5c4f4eed-8284-404f-a32b-c752837121fe}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interpolation">
+      <UniqueIdentifier>{14b6e9ef-1127-412f-b8bd-9b6388aa52d7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interpolation\base">
+      <UniqueIdentifier>{f40d2f96-597a-478c-a00b-19b8debc5eb4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interpolation\base\trajectory">
+      <UniqueIdentifier>{664bc1cd-5f21-43ea-a1dd-e8259243eb53}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interpolation\base\relativity">
+      <UniqueIdentifier>{28d8873c-81fb-4fcd-824b-ecfe025cc2fb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{5f54e98b-507d-4862-9948-7cf1db8ba2a8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Phase">
+      <UniqueIdentifier>{df3bb68d-9913-4722-a856-8631866301e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Profiler">
+      <UniqueIdentifier>{e2fba5ee-536a-4a79-b0a6-65508437fd54}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="String">
+      <UniqueIdentifier>{e6e46817-0ed9-4fc2-883c-555ce64084d2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="String\Unicode">
+      <UniqueIdentifier>{6f23661a-4456-46e9-8480-27da8bf6abfc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="String\Unicode\UTF8-CPP">
+      <UniqueIdentifier>{06de4c4c-eb05-472a-a597-2ca19ea9ecb7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Task">
+      <UniqueIdentifier>{ee1c9e41-68b1-47c8-b3e2-aa77ce57dbe3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Time">
+      <UniqueIdentifier>{156ee945-6917-4149-93c0-bccc3eadade1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Time\Task">
+      <UniqueIdentifier>{d83725a4-d139-46e4-8c37-d7948e664664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Id">
+      <UniqueIdentifier>{6f1d46fb-9400-431a-b088-12d0d5aff2d3}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="GC_Application.cpp">
+      <Filter>Application</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_Console.cpp">
+      <Filter>Console</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_ConsoleCmd_Help.cpp">
+      <Filter>Console</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_ConsoleCmd_PhaseControl.cpp">
+      <Filter>Console</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_ConsoleCmd_TaskControl.cpp">
+      <Filter>Console</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_Log.cpp">
+      <Filter>Log</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_LogManager.cpp">
+      <Filter>Log</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_Phase.cpp">
+      <Filter>Phase</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_PhaseManager.cpp">
+      <Filter>Phase</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_Profiler.cpp">
+      <Filter>Profiler</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_ChronicTask.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_Task.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_TaskManager.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_TimedTask.cpp">
+      <Filter>Task</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_Clock.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_ClockManager.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_Timer.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_TimerManager.cpp">
+      <Filter>Time</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_Task_ClockUpdate.cpp">
+      <Filter>Time\Task</Filter>
+    </ClCompile>
+    <ClCompile Include="GC_Task_TimerUpdate.cpp">
+      <Filter>Time\Task</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="GC_Application.h">
+      <Filter>Application</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Console.h">
+      <Filter>Console</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_ConsoleCmd_Help.h">
+      <Filter>Console</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_ConsoleCmd_PhaseControl.h">
+      <Filter>Console</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_ConsoleCmd_TaskControl.h">
+      <Filter>Console</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_ConsoleCommand.h">
+      <Filter>Console</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_DataEvent.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Event.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_EventListener.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_EventManager.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Task_EventProcess.h">
+      <Filter>Event</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_BezierCurve.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Curve.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Line.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_SpaceStateUtil.h">
+      <Filter>Geometry</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_DynamicInterpolator.h">
+      <Filter>Interpolation</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Interpolator.h">
+      <Filter>Interpolation</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_RailInterpolator.h">
+      <Filter>Interpolation</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_TrajectoryControl_Path.h">
+      <Filter>Interpolation\base\trajectory</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_TrajectoryControl_Target.h">
+      <Filter>Interpolation\base\trajectory</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_RelativityControl_Speed.h">
+      <Filter>Interpolation\base\relativity</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_RelativityControl_TimeBased.h">
+      <Filter>Interpolation\base\relativity</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Log.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_LogListener.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_LogManager.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Phase.h">
+      <Filter>Phase</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_PhaseManager.h">
+      <Filter>Phase</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Profiler.h">
+      <Filter>Profiler</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UTF8cpp\source\utf8.h">
+      <Filter>String\Unicode</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UTF8cpp\source\utf8\checked.h">
+      <Filter>String\Unicode\UTF8-CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UTF8cpp\source\utf8\core.h">
+      <Filter>String\Unicode\UTF8-CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="..\UTF8cpp\source\utf8\unchecked.h">
+      <Filter>String\Unicode\UTF8-CPP</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_ChronicTask.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_ProxyTask.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Task.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_TaskManager.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_TaskProperties.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_TimedTask.h">
+      <Filter>Task</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Clock.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_ClockManager.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_FixedTimeProvider.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Time.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Timer.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_TimeReference.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_TimerManager.h">
+      <Filter>Time</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Task_ClockUpdate.h">
+      <Filter>Time\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Task_TimerUpdate.h">
+      <Filter>Time\Task</Filter>
+    </ClInclude>
+    <ClInclude Include="GC_Common.h" />
+    <ClInclude Include="GC_CrossPlatform.h" />
+    <ClInclude Include="GC_Exception.h" />
+    <ClInclude Include="GC_Singleton.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="TODO_GCore.txt" />
+    <None Include="VA_HeaderTemplate.txt" />
+  </ItemGroup>
+</Project>
