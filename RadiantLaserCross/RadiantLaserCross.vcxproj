@@ -96,12 +96,15 @@ copy ..\SFML\extlibs\bin\*.* ..\Build\$(Configuration)\
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="RLC_Bullet.cpp" />
     <ClCompile Include="RLC_Game.cpp" />
     <ClCompile Include="RLC_GameConfig.cpp" />
+    <ClCompile Include="RLC_GameEntity.cpp" />
     <ClCompile Include="RLC_GameScene.cpp" />
     <ClCompile Include="RLC_GameSession.cpp" />
     <ClCompile Include="RLC_GameStateManager.cpp" />
     <ClCompile Include="RLC_GameStateNames.cpp" />
+    <ClCompile Include="RLC_Gun.cpp" />
     <ClCompile Include="RLC_Main.cpp" />
     <ClCompile Include="RLC_PlayerShip.cpp" />
   </ItemGroup>

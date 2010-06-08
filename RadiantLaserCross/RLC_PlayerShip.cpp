@@ -9,21 +9,42 @@
 
 namespace rlc
 {
-	
+	const float SHIP_WIDTH = 32.0f;
+	const float SHIP_HEIGHT = 32.0f;
 
-	void PlayerShip::render()
+
+	PlayerShip::PlayerShip()
 	{
-		Position pos = position();
-		sf::Vector2f dimensions( 24.0f, 24.0f );
-		dimensions += pos;
-
-		sf::Shape ship_shape = sf::Shape::Rectangle( pos, dimensions , sf::Color( 0, 255, 0 ) );
-		
-		Game::current().display().Draw( ship_shape );
-		
+		box( Box(-4,-4,4,4) );
+		position( Position( SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 ) ) ;
 	}
 
-	void PlayerShip::update()
+
+	void PlayerShip::do_render()
+	{
+		Position pos = position();
+		
+		const float ship_center_x = SHIP_WIDTH/2;
+		const float ship_center_y = SHIP_HEIGHT/2;
+
+		sf::Vector2f top_left( -ship_center_x, -ship_center_y );
+		sf::Vector2f bottom_right( ship_center_x, ship_center_y );
+		
+		top_left += pos;
+		bottom_right += pos;
+
+		sf::Shape ship_shape = sf::Shape::Rectangle( top_left, bottom_right , sf::Color( 0, 180, 30 ) );
+		
+		Game::current().display().Draw( ship_shape );
+		Game::current().display().Draw( shape() );
+	}
+
+	void PlayerShip::do_update()
+	{
+		update_move();
+	}
+
+	void PlayerShip::update_move()
 	{
 		using namespace sf;
 
@@ -34,27 +55,29 @@ namespace rlc
 
 		// TODO : rewrite all this!
 
-		if( input.IsKeyDown( Key::Left ) )
+		static const float JOYSTICK_TOLERANCE = 1.0f;
+
+		if( input.IsKeyDown( Key::Left ) || input.GetJoystickAxis(0, sf::Joy::AxisX ) < -JOYSTICK_TOLERANCE )
 		{
-			if( position.x > 0 )
+			if( position.x > SHIP_WIDTH/2 )
 				move.x -= 1;
 		}
 
-		if( input.IsKeyDown( Key::Right ) )
+		if( input.IsKeyDown( Key::Right ) || input.GetJoystickAxis(0, sf::Joy::AxisX ) > JOYSTICK_TOLERANCE )
 		{
-			if( position.x < ( SCREEN_WIDTH - 24.0f ) ) 
+			if( position.x < ( SCREEN_WIDTH - (SHIP_WIDTH/2) ) ) 
 				move.x += 1;
 		}
 
-		if( input.IsKeyDown( Key::Up ) )
+		if( input.IsKeyDown( Key::Up ) || input.GetJoystickAxis(0, sf::Joy::AxisY ) < -JOYSTICK_TOLERANCE )
 		{
-			if( position.y > 0 )
+			if( position.y > SHIP_HEIGHT/2 )
 				move.y -= 1;
 		}
 
-		if( input.IsKeyDown( Key::Down ) )
+		if( input.IsKeyDown( Key::Down ) || input.GetJoystickAxis(0, sf::Joy::AxisY ) > JOYSTICK_TOLERANCE )
 		{
-			if( position.y < ( SCREEN_HEIGHT - 24.0f ) )
+			if( position.y < ( SCREEN_HEIGHT - (SHIP_HEIGHT/2) ) )
 				move.y += 1;
 		}
 

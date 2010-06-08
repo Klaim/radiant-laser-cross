@@ -2,16 +2,31 @@
 #define RLC_BULLET_H
 #pragma once
 
+#include "RLC_GameEntity.h"
+
 namespace rlc
 {
 	/** No documentation yet.
 	*/
 	class Bullet
+		: public GameEntity
 	{
 	public:
 
+		Bullet();
+		
+		void fire( Position start_pos, Position direction );
+
+		bool is_active() const { return m_active; }
 		
 	private:
+
+		void do_render();
+		void do_update();
+
+		bool m_active;
+		float m_lifetime;
+
 	
 	};
 	
