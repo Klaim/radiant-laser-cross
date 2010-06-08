@@ -1,0 +1,79 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Game">
+      <UniqueIdentifier>{cc705251-3b49-460b-9be0-b08ed84f0a36}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameState">
+      <UniqueIdentifier>{34951f62-91f9-42e3-acd7-ec7dc9975de5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameSession">
+      <UniqueIdentifier>{6841d73b-f3f6-4586-81f9-a2e074de3d73}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Game\GameSession\GameEntity">
+      <UniqueIdentifier>{2b8a9d14-1ba9-4443-bb5b-fe7727742c1f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RLC_Game.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_GameConfig.h">
+      <Filter>Game</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_GameStateManager.h">
+      <Filter>Game\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_GameScene.h">
+      <Filter>Game\GameSession</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_GameEntity.h">
+      <Filter>Game\GameSession\GameEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_GameState.h">
+      <Filter>Game\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_GameStateNames.h">
+      <Filter>Game\GameState</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_GameSession.h">
+      <Filter>Game\GameSession</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_Player.h">
+      <Filter>Game\GameSession</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_PlayerShip.h">
+      <Filter>Game\GameSession\GameEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_Ship.h">
+      <Filter>Game\GameSession\GameEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_Bullet.h">
+      <Filter>Game\GameSession\GameEntity</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="RLC_Game.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_GameConfig.cpp">
+      <Filter>Game</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_Main.cpp" />
+    <ClCompile Include="RLC_GameStateManager.cpp">
+      <Filter>Game\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_GameStateNames.cpp">
+      <Filter>Game\GameState</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_GameSession.cpp">
+      <Filter>Game\GameSession</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_PlayerShip.cpp">
+      <Filter>Game\GameSession\GameEntity</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_GameScene.cpp">
+      <Filter>Game\GameSession</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
