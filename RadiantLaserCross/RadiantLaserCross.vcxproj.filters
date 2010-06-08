@@ -42,13 +42,16 @@
     <ClInclude Include="RLC_Player.h">
       <Filter>Game\GameSession</Filter>
     </ClInclude>
-    <ClInclude Include="RLC_PlayerShip.h">
-      <Filter>Game\GameSession\GameEntity</Filter>
-    </ClInclude>
     <ClInclude Include="RLC_Ship.h">
       <Filter>Game\GameSession\GameEntity</Filter>
     </ClInclude>
     <ClInclude Include="RLC_Bullet.h">
+      <Filter>Game\GameSession\GameEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_PlayerShip.h">
+      <Filter>Game\GameSession\GameEntity</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_Gun.h">
       <Filter>Game\GameSession\GameEntity</Filter>
     </ClInclude>
   </ItemGroup>
@@ -69,11 +72,11 @@
     <ClCompile Include="RLC_GameSession.cpp">
       <Filter>Game\GameSession</Filter>
     </ClCompile>
-    <ClCompile Include="RLC_PlayerShip.cpp">
-      <Filter>Game\GameSession\GameEntity</Filter>
-    </ClCompile>
     <ClCompile Include="RLC_GameScene.cpp">
       <Filter>Game\GameSession</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_PlayerShip.cpp">
+      <Filter>Game\GameSession\GameEntity</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
