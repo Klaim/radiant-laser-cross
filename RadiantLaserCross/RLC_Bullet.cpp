@@ -1,11 +1,11 @@
 #include "RLC_Bullet.h"
 
+
 namespace rlc
 {
 	
-
-
 	Bullet::Bullet()
+		: m_rotation_speed(  )
 	{
 
 	}

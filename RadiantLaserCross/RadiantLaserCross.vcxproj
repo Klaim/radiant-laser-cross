@@ -118,6 +118,7 @@ copy ..\SFML\extlibs\bin\*.* ..\Build\$(Configuration)\
     <ClInclude Include="RLC_GameConfig.h" />
     <ClInclude Include="RLC_GameScene.h" />
     <ClInclude Include="RLC_GameStateManager.h" />
+    <ClInclude Include="RLC_Geometry.h" />
     <ClInclude Include="RLC_Gun.h" />
     <ClInclude Include="RLC_Player.h" />
     <ClInclude Include="RLC_PlayerShip.h" />
