@@ -13,6 +13,8 @@ namespace rlc
 	{
 	public:
 
+		// TODO : review all that!
+		// BulletGenerator?
 		Bullet();
 		
 		void fire( Position start_pos, Position direction );
@@ -26,7 +28,7 @@ namespace rlc
 
 		bool m_active;
 		float m_lifetime;
-
+		float m_rotation_speed;
 	
 	};
 	

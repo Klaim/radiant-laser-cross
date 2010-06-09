@@ -4,19 +4,14 @@
 
 #include <boost/shared_ptr.hpp>
 
-#include "sfml/System/Vector2.hpp"
-#include "sfml/Graphics/Rect.hpp"
 #include "sfml/Graphics/Shape.hpp"
 
-
+#include "RLC_Geometry.h"
 #include "RLC_GameEntity.h"
 
 namespace rlc
 {
-	typedef short PlanIdx;
-	typedef sf::Vector2f Position;
-	typedef float Orientation;
-	typedef sf::FloatRect Box;
+	
 
 	/** No documentation yet.
 	*/
@@ -40,11 +35,11 @@ namespace rlc
 		Orientation orientation() const { return m_orientation; }
 		void orientation( Orientation new_angle ) { m_orientation = new_angle; }
 
-		Box box() const { return m_box; }
-		void box( Box new_box ) { m_box = new_box; }
+		Box core() const { return m_core; }
+		void core( Box new_box ) { m_core = new_box; }
 
 
-		sf::Shape shape();
+		sf::Shape core_shape();
 		
 	private:
 
@@ -54,7 +49,7 @@ namespace rlc
 
 		PlanIdx m_plan_idx;
 	
-		Box				m_box;
+		Box				m_core;
 		Position		m_position;
 		Position		m_center;
 		Orientation		m_orientation;
