@@ -14,26 +14,29 @@ namespace rlc
 {
 	const float SHIP_WIDTH = 32.0f;
 	const float SHIP_HEIGHT = 32.0f;
-
+		
 	const float GUN_DISTANCE = 26.0f;
 	const float GUN_WIDTH = 20.0f;
 	const float GUN_HEIGHT = 16.0f;
 
 	const float GUN_ANGLE_INTERVAL = 360.0f / float(MAX_PLAYER_GUNS);
 
-	const float GUN_ROTATION_SPEED = 10.0f;
+	const float GUN_ROTATION_SPEED = 5.0f;
+
+	const float FULL_SHIP_WIDTH = SHIP_WIDTH + SHIP_HEIGHT;
 
 	PlayerShip::PlayerShip()
 		: m_guns_orientation( 0.0f )
 		, m_guns_setup( GunsSetup_Up )
+
 	{
 		core( Box(-4,-4,4,4) );
 		position( Position( SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 ) ) ;
 
 		set_gun( boost::make_shared<Gun>(), 0 );
 		set_gun( boost::make_shared<Gun>(), 1 );
-		//set_gun( boost::make_shared<Gun>(), 2 );
-		//set_gun( boost::make_shared<Gun>(), 3 );
+		set_gun( boost::make_shared<Gun>(), 2 );
+		set_gun( boost::make_shared<Gun>(), 3 );
 	}
 	
 	void PlayerShip::do_update()
@@ -57,25 +60,25 @@ namespace rlc
 
 		if( input.IsKeyDown( Key::Q ) || input.GetJoystickAxis(0, sf::Joy::AxisX ) < -JOYSTICK_TOLERANCE )
 		{
-			if( position.x > SHIP_WIDTH/2 )
+			if( position.x > FULL_SHIP_WIDTH/2 )
 				move.x -= 1;
 		}
 
 		if( input.IsKeyDown( Key::D ) || input.GetJoystickAxis(0, sf::Joy::AxisX ) > JOYSTICK_TOLERANCE )
 		{
-			if( position.x < ( SCREEN_WIDTH - (SHIP_WIDTH/2) ) ) 
+			if( position.x < ( SCREEN_WIDTH - (FULL_SHIP_WIDTH/2) ) ) 
 				move.x += 1;
 		}
 
 		if( input.IsKeyDown( Key::Z ) || input.GetJoystickAxis(0, sf::Joy::AxisY ) < -JOYSTICK_TOLERANCE )
 		{
-			if( position.y > SHIP_HEIGHT/2 )
+			if( position.y > FULL_SHIP_WIDTH/2 )
 				move.y -= 1;
 		}
 
 		if( input.IsKeyDown( Key::S ) || input.GetJoystickAxis(0, sf::Joy::AxisY ) > JOYSTICK_TOLERANCE )
 		{
-			if( position.y < ( SCREEN_HEIGHT - (SHIP_HEIGHT/2) ) )
+			if( position.y < ( SCREEN_HEIGHT - (FULL_SHIP_WIDTH/2) ) )
 				move.y += 1;
 		}
 
@@ -85,11 +88,11 @@ namespace rlc
 
 		if( !is_rotating_guns() )
 		{
-			if( input.IsKeyDown( Key::Left ) )
+			if( input.IsKeyDown( Key::Numpad7 ) || input.IsJoystickButtonDown( 0, 6 ) )
 			{
 				rotate_guns( 1 );
 			}
-			if( input.IsKeyDown( Key::Right ) )
+			if( input.IsKeyDown( Key::Numpad9 ) || input.IsJoystickButtonDown( 0, 7 ) )
 			{
 				rotate_guns( -1 );
 			}
@@ -110,13 +113,21 @@ namespace rlc
 		if( is_rotating_guns() )
 		{
 			const float target_orientation = slot_direction( m_guns_setup );
-			const float angle_difference = ; // FUCK
+			const float angle_difference = target_orientation - m_guns_orientation; // FUCK
 			const float result_angle = std::abs( angle_difference );
-			
+
 			if( result_angle > GUN_ROTATION_SPEED )
 			{
-				const float rotation = GUN_ROTATION_SPEED * ( angle_difference > 0 ? 1 : -1 );
+				const float rotation = GUN_ROTATION_SPEED * ( ( angle_difference > 0.0f ? 1 : -1 ) * (result_angle < 180.0f ? 1 : -1) );
 				m_guns_orientation += rotation;
+				if( m_guns_orientation > 360.0f )
+				{
+					m_guns_orientation -= 360.0f;
+				}
+				else if( m_guns_orientation < 0.0f )
+				{
+					m_guns_orientation += 360.0f;
+				}
 			}
 			else
 			{
@@ -186,7 +197,15 @@ namespace rlc
 
 	sf::Color PlayerShip::gun_color( unsigned int gun_idx ) const
 	{
-		return sf::Color( 126, 22 * gun_idx, 22 * gun_idx );
+		static const sf::Uint8 ALPHA = 200;
+		static const std::array< sf::Color, MAX_PLAYER_GUNS > colors = 
+		{ sf::Color( 255, 252, 0, ALPHA )
+		, sf::Color( 255, 174, 0, ALPHA )
+		, sf::Color( 255, 12, 0, ALPHA  )
+		, sf::Color( 174, 0, 255, ALPHA )
+		};
+
+		return colors[ gun_idx ];
 	}
 
 	rlc::Orientation PlayerShip::gun_direction( unsigned int gun_idx ) const
