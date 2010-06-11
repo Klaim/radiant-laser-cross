@@ -43,6 +43,8 @@ namespace rlc
 		void render_guns();
 		void render_gun( unsigned int gun_idx );
 
+		int gun_id( unsigned int slot );
+
 		Orientation gun_direction( unsigned int gun_idx ) const;
 		Orientation slot_direction( unsigned int gun_idx ) const;
 		sf::Color gun_color( unsigned int gun_idx ) const;

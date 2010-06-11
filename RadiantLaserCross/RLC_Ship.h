@@ -34,7 +34,7 @@ namespace rlc
 
 
 	private:
-		
+				
 		std::array< GunSlot, MAX_GUN_COUNT > m_guns;
 	};
 

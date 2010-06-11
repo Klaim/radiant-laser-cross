@@ -33,10 +33,12 @@ namespace rlc
 		core( Box(-4,-4,4,4) );
 		position( Position( SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 ) ) ;
 
-		set_gun( boost::make_shared<Gun>(), 0 );
-		set_gun( boost::make_shared<Gun>(), 1 );
-		set_gun( boost::make_shared<Gun>(), 2 );
-		set_gun( boost::make_shared<Gun>(), 3 );
+		GunTypePtr dummy_gun_type = boost::make_shared<GunType>();
+
+		set_gun( boost::make_shared<Gun>( dummy_gun_type ), 0 );
+		set_gun( boost::make_shared<Gun>( dummy_gun_type ), 1 );
+		set_gun( boost::make_shared<Gun>( dummy_gun_type ), 2 );
+		set_gun( boost::make_shared<Gun>( dummy_gun_type ), 3 );
 	}
 	
 	void PlayerShip::do_update()
@@ -53,9 +55,7 @@ namespace rlc
 
 		Position move;
 		Position position = this->position();
-
-		// TODO : rewrite all this!
-
+		
 		static const float JOYSTICK_TOLERANCE = 1.0f;
 
 		if( input.IsKeyDown( Key::Q ) || input.GetJoystickAxis(0, sf::Joy::AxisX ) < -JOYSTICK_TOLERANCE )
@@ -100,11 +100,22 @@ namespace rlc
 		}
 
 		// FIRE
-		if( input.IsKeyDown( Key::Up ) )
+		if( input.IsKeyDown( Key::Numpad6 ) )
 		{
-
+			fire_gun( gun_id( 0 ) );
 		}
-
+		if( input.IsKeyDown( Key::Numpad8 ) )
+		{
+			fire_gun( gun_id( 1 ) );
+		}
+		if( input.IsKeyDown( Key::Numpad4 ) )
+		{
+			fire_gun( gun_id( 2 ) );
+		}
+		if( input.IsKeyDown( Key::Numpad5 ) )
+		{
+			fire_gun( gun_id( 3 ) );
+		}
 		
 	}
 
@@ -232,6 +243,11 @@ namespace rlc
 		return m_guns_orientation > target_orientation
 			|| m_guns_orientation < target_orientation
 			;
+	}
+
+	int PlayerShip::gun_id( unsigned int slot )
+	{
+		return (int(m_guns_setup) + slot ) % MAX_PLAYER_GUNS;
 	}
 
 
