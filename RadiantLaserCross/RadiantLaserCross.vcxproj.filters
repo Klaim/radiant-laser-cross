@@ -22,6 +22,9 @@
     <Filter Include="Game\GameSession\GameEntity\Gunship\Bullet">
       <UniqueIdentifier>{1023870b-6d0b-4484-9eae-382bf5719e37}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Game\GameSession\GameEntity\Gunship\Gun">
+      <UniqueIdentifier>{a7b4e0af-1528-453b-aebc-719be750e8b7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RLC_Game.h">
@@ -54,9 +57,6 @@
     <ClInclude Include="RLC_Ship.h">
       <Filter>Game\GameSession\GameEntity\Gunship</Filter>
     </ClInclude>
-    <ClInclude Include="RLC_Gun.h">
-      <Filter>Game\GameSession\GameEntity\Gunship</Filter>
-    </ClInclude>
     <ClInclude Include="RLC_PlayerShip.h">
       <Filter>Game\GameSession\GameEntity\PlayerShip</Filter>
     </ClInclude>
@@ -64,6 +64,15 @@
       <Filter>Game\GameSession\GameEntity</Filter>
     </ClInclude>
     <ClInclude Include="RLC_Bullet.h">
+      <Filter>Game\GameSession\GameEntity\Gunship\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_Gun.h">
+      <Filter>Game\GameSession\GameEntity\Gunship\Gun</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_GunType.h">
+      <Filter>Game\GameSession\GameEntity\Gunship\Gun</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_BulletType.h">
       <Filter>Game\GameSession\GameEntity\Gunship\Bullet</Filter>
     </ClInclude>
   </ItemGroup>
@@ -93,11 +102,11 @@
     <ClCompile Include="RLC_GameEntity.cpp">
       <Filter>Game\GameSession\GameEntity</Filter>
     </ClCompile>
-    <ClCompile Include="RLC_Gun.cpp">
-      <Filter>Game\GameSession\GameEntity\Gunship</Filter>
-    </ClCompile>
     <ClCompile Include="RLC_Bullet.cpp">
       <Filter>Game\GameSession\GameEntity\Gunship\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_Gun.cpp">
+      <Filter>Game\GameSession\GameEntity\Gunship\Gun</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

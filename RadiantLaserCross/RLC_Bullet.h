@@ -3,6 +3,7 @@
 #pragma once
 
 #include "RLC_GameEntity.h"
+#include "RLC_BulletType.h"
 
 namespace rlc
 {
@@ -15,7 +16,7 @@ namespace rlc
 
 		// TODO : review all that!
 		// BulletGenerator?
-		Bullet();
+		Bullet( BulletTypePtr bullet_type );
 		
 		void fire( Position start_pos, Position direction );
 
@@ -30,6 +31,7 @@ namespace rlc
 		float m_lifetime;
 		float m_rotation_speed;
 	
+		const BulletTypePtr m_type;
 	};
 	
 }

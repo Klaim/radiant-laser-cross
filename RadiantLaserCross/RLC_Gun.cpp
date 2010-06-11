@@ -4,7 +4,8 @@ namespace rlc
 {
 	
 
-	Gun::Gun()
+	Gun::Gun( GunTypePtr gun_type )
+		: m_type( gun_type )
 	{
 
 	}
