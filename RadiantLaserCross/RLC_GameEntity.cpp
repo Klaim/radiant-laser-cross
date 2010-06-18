@@ -1,5 +1,9 @@
 #include "RLC_GameEntity.h"
 
+#include "sfml/Graphics/Rect.hpp"
+
+#include "RLC_GameConfig.h"
+
 namespace rlc
 {
 	
@@ -13,6 +17,12 @@ namespace rlc
 		result_shape.SetPosition( m_position );
 
 		return result_shape;
+	}
+
+	bool in_screen( const GameEntity& entity )
+	{
+		sf::FloatRect screen_rect( 0.0f, 0.0f, float(SCREEN_WIDTH), float(SCREEN_HEIGHT) );
+		return screen_rect.Intersects( entity.core() ); 
 	}
 
 }

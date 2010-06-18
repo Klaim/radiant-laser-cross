@@ -14,24 +14,26 @@ namespace rlc
 	{
 	public:
 
-		// TODO : review all that!
-		// BulletGenerator?
-		Bullet( BulletTypePtr bullet_type );
+		Bullet();
 		
-		void fire( Position start_pos, Position direction );
+		void fire( const BulletTypePtr& bullet_type, Position start_pos, Direction start_dir );
 
-		bool is_active() const { return m_active; }
+		void die();
+		bool is_alive() const { return m_alive; }
+
+		const BulletTypePtr& type() { return m_type; }
 		
 	private:
 
 		void do_render();
 		void do_update();
 
-		bool m_active;
-		float m_lifetime;
-		float m_rotation_speed;
+		void move_forward();
+
+		bool m_alive;
+		Velocity m_velocity;
 	
-		const BulletTypePtr m_type;
+		BulletTypePtr m_type;
 	};
 	
 }

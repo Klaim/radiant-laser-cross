@@ -11,6 +11,7 @@ namespace rlc
 	const float PI = 3.141592654f;
 
 	typedef short PlanIdx;
+	typedef sf::Vector2f Vector2;
 	typedef sf::Vector2f Position;
 	typedef sf::Vector2f Direction;
 	typedef sf::Vector2f Velocity;

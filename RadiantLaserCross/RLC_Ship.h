@@ -55,6 +55,7 @@ namespace rlc
 		GC_ASSERT_NOT_NULL( gun.get() );
 		GC_ASSERT_NULL( m_guns.at( gun_idx ).get() );
 		m_guns.at( gun_idx ) = gun;
+		add( gun.get() ); // THIS IS BAD!!!
 	}
 
 	template< unsigned int MAX_GUN_COUNT >
@@ -65,6 +66,7 @@ namespace rlc
 		if( gun.get() != nullptr )
 		{
 			gun_slot.reset();
+			remove( gun_slot.get() ); // THIS IS BAD!!!
 			return gun;
 		}
 	}
