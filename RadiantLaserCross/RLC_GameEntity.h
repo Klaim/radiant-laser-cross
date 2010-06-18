@@ -2,12 +2,15 @@
 #define RLC_GAMEENTITY_H
 #pragma once
 
-#include <boost/shared_ptr.hpp>
+
+#include "RLC_Geometry.h"
+#include "RLC_GameEntityGroup.h"
 
 #include "sfml/Graphics/Shape.hpp"
 
-#include "RLC_Geometry.h"
-#include "RLC_GameEntity.h"
+#include <boost/shared_ptr.hpp>
+
+
 
 namespace rlc
 {
@@ -16,13 +19,14 @@ namespace rlc
 	/** No documentation yet.
 	*/
 	class GameEntity
+		: public GameEntityGroup
 	{
 	public:
 
 		GameEntity() : m_plan_idx(0), m_orientation(0.0f) {}
 
-		void render() { do_render(); }
-		void update() { do_update(); }
+		void render() { do_render(); render_children(); }
+		void update() { do_update(); update_children(); }
 
 		PlanIdx plan_idx() const { return m_plan_idx; }
 
@@ -38,9 +42,8 @@ namespace rlc
 		Box core() const { return m_core; }
 		void core( Box new_box ) { m_core = new_box; }
 
-
 		sf::Shape core_shape();
-		
+						
 	private:
 
 
@@ -54,9 +57,11 @@ namespace rlc
 		Position		m_center;
 		Orientation		m_orientation;
 
+		std::vector< GameEntity* > m_children;
+
 	};
 
-	
+	bool in_screen( const GameEntity& entity );
 
 	
 }

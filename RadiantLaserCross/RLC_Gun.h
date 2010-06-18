@@ -2,10 +2,11 @@
 #define RLC_GUN_H
 #pragma once
 
+#include "RLC_GameEntity.h"
+#include "RLC_GunType.h"
+
 #include <boost/shared_ptr.hpp>
 
-#include "RLC_Geometry.h"
-#include "RLC_GunType.h"
 
 namespace rlc
 {
@@ -13,15 +14,16 @@ namespace rlc
 	/** No documentation yet.
 	*/
 	class Gun
+		: public GameEntity
 	{
 	public:
 
 		Gun( GunTypePtr gun_type );
 
-		void fire(); 
-		bool fired() const;
+		void fire();
+		void cool();
 
-		void direction( Orientation angle  ) { /* TODO!!! */ }
+		void direction( Orientation angle  );
 		void direction( Direction new_direction ) { m_direction = new_direction; }
 		Direction direction() const { return m_direction; }
 
@@ -30,10 +32,12 @@ namespace rlc
 		
 	private:
 
+		void do_update();
+
 		Direction m_direction; 
-		Position m_cannon; // relative to the ship
+		Position m_cannon; // relative to the ship?
 		const GunTypePtr m_type;
-		
+		float m_heat;
 	};
 
 	typedef boost::shared_ptr< Gun > GunSlot;

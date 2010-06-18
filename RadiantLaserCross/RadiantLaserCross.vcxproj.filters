@@ -75,6 +75,12 @@
     <ClInclude Include="RLC_BulletType.h">
       <Filter>Game\GameSession\GameEntity\Gunship\Bullet</Filter>
     </ClInclude>
+    <ClInclude Include="RLC_BulletManager.h">
+      <Filter>Game\GameSession\GameEntity\Gunship\Bullet</Filter>
+    </ClInclude>
+    <ClInclude Include="RLC_GameEntityGroup.h">
+      <Filter>Game\GameSession\GameEntity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RLC_Game.cpp">
@@ -107,6 +113,12 @@
     </ClCompile>
     <ClCompile Include="RLC_Gun.cpp">
       <Filter>Game\GameSession\GameEntity\Gunship\Gun</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_BulletManager.cpp">
+      <Filter>Game\GameSession\GameEntity\Gunship\Bullet</Filter>
+    </ClCompile>
+    <ClCompile Include="RLC_GameEntityGroup.cpp">
+      <Filter>Game\GameSession\GameEntity</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

@@ -5,10 +5,13 @@
 
 #include "sfml/Graphics/Shape.hpp"
 #include "sfml/Graphics/Rect.hpp"
+#include "sfml/Graphics/Color.hpp"
 #include "sfml/Graphics/RenderWindow.hpp"
 
 #include "RLC_Game.h"
 #include "RLC_GameConfig.h"
+#include "RLC_BulletType.h"
+#include "RLC_GunType.h"
 
 namespace rlc
 {
@@ -25,22 +28,76 @@ namespace rlc
 
 	const float FULL_SHIP_WIDTH = SHIP_WIDTH + SHIP_HEIGHT;
 
+	namespace test
+	{
+		class BulletType : public rlc::BulletType
+		{
+		public:
+
+			BulletType( sf::Color b_color ) : m_bullet_color( b_color ) {}
+
+			sf::Shape bullet_shape() const 
+			{
+				return sf::Shape::Circle( 0.0f, 0.0f, 4.0f, m_bullet_color );
+			}
+
+			float bullet_speed() const { return 10.0f; }
+			sf::Color bullet_color() const { return m_bullet_color; }
+
+			void bullet_behavior( Bullet& bullet ) const {  }
+
+		private:
+
+			sf::Color m_bullet_color;
+
+		};
+
+		class GunType : public rlc::GunType
+		{
+		public:
+
+			GunType( BulletTypePtr bt ) : m_bullet_type( bt ) { GC_ASSERT_NOT_NULL(m_bullet_type.get()); }
+
+			BulletTypePtr bullet_type() const { return m_bullet_type;}
+			float fire_rate() const { return 5.0f; }
+
+		private:
+
+			BulletTypePtr m_bullet_type;
+
+		};
+	}
+	
+
 	PlayerShip::PlayerShip()
 		: m_guns_orientation( 0.0f )
-		, m_guns_setup( GunsSetup_Up )
+		, m_guns_setup( GunsSetup_East )
 
 	{
 		core( Box(-4,-4,4,4) );
 		position( Position( SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 ) ) ;
 
-		GunTypePtr dummy_gun_type = boost::make_shared<GunType>();
+		BulletTypePtr test_bullet_type_0 = boost::make_shared<test::BulletType>( gun_color(0) );
+		BulletTypePtr test_bullet_type_1 = boost::make_shared<test::BulletType>( gun_color(1) );
+		BulletTypePtr test_bullet_type_2 = boost::make_shared<test::BulletType>( gun_color(2) );
+		BulletTypePtr test_bullet_type_3 = boost::make_shared<test::BulletType>( gun_color(3) );
 
-		set_gun( boost::make_shared<Gun>( dummy_gun_type ), 0 );
-		set_gun( boost::make_shared<Gun>( dummy_gun_type ), 1 );
-		set_gun( boost::make_shared<Gun>( dummy_gun_type ), 2 );
-		set_gun( boost::make_shared<Gun>( dummy_gun_type ), 3 );
+		GunTypePtr test_gun_type_0 = boost::make_shared<test::GunType>( test_bullet_type_0 );
+		GunTypePtr test_gun_type_1 = boost::make_shared<test::GunType>( test_bullet_type_1 );
+		GunTypePtr test_gun_type_2 = boost::make_shared<test::GunType>( test_bullet_type_2 );
+		GunTypePtr test_gun_type_3 = boost::make_shared<test::GunType>( test_bullet_type_3 );
+
+		set_gun( boost::make_shared<Gun>( test_gun_type_0 ), 0 );
+		set_gun( boost::make_shared<Gun>( test_gun_type_1 ), 1 );
+		set_gun( boost::make_shared<Gun>( test_gun_type_2 ), 2 );
+		set_gun( boost::make_shared<Gun>( test_gun_type_3 ), 3 );
+
+		get_gun(0)->direction( Vector2( 1.0f, 0.0f ) );
+		get_gun(1)->direction( Vector2( 0.0f, -1.0f ) );
+		get_gun(2)->direction( Vector2( -1.0f, 0.0f ) );
+		get_gun(3)->direction( Vector2( 0.0f, 1.0f ) );
 	}
-	
+
 	void PlayerShip::do_update()
 	{
 		update_move();
@@ -150,7 +207,9 @@ namespace rlc
 				if( has_gun( i ) )
 				{
 					GunSlot gun = get_gun( i );
-					gun->direction( gun_direction( i ) );
+					Orientation gun_dir = gun_direction( i );
+					gun->direction( gun_dir );
+				
 				}
 			}
 
@@ -200,15 +259,23 @@ namespace rlc
 		const float HALF_HEIGHT = GUN_HEIGHT / 2;
 
 		sf::Shape gun_shape = sf::Shape::Rectangle( GUN_DISTANCE, -HALF_HEIGHT, GUN_DISTANCE + GUN_WIDTH, HALF_HEIGHT , gun_color( gun_idx ) );
-		gun_shape.Rotate( gun_direction( gun_idx ) );
+		sf::Shape cannon_shape = sf::Shape::Circle( GUN_DISTANCE + GUN_WIDTH, 0.0f , 3.0f, sf::Color::White );
+
+		Orientation gun_dir = gun_direction( gun_idx );
+		gun_shape.Rotate( gun_dir );
 		gun_shape.Move( position() );
+		
+		cannon_shape.Rotate( gun_dir );
+		cannon_shape.Move( position() );
+		gun->cannon( position() + Position( GUN_DISTANCE + GUN_WIDTH, 0.0f ) ); // THIS IS VERY BAD!!!
 
 		Game::current().display().Draw( gun_shape );
+		Game::current().display().Draw( cannon_shape );
 	}
 
 	sf::Color PlayerShip::gun_color( unsigned int gun_idx ) const
 	{
-		static const sf::Uint8 ALPHA = 200;
+		static const sf::Uint8 ALPHA = 170;
 		static const std::array< sf::Color, MAX_PLAYER_GUNS > colors = 
 		{ sf::Color( 255, 252, 0, ALPHA )
 		, sf::Color( 255, 174, 0, ALPHA )

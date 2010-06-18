@@ -97,9 +97,11 @@ copy ..\SFML\extlibs\bin\*.* ..\Build\$(Configuration)\
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="RLC_Bullet.cpp" />
+    <ClCompile Include="RLC_BulletManager.cpp" />
     <ClCompile Include="RLC_Game.cpp" />
     <ClCompile Include="RLC_GameConfig.cpp" />
     <ClCompile Include="RLC_GameEntity.cpp" />
+    <ClCompile Include="RLC_GameEntityGroup.cpp" />
     <ClCompile Include="RLC_GameScene.cpp" />
     <ClCompile Include="RLC_GameSession.cpp" />
     <ClCompile Include="RLC_GameStateManager.cpp" />
@@ -110,8 +112,10 @@ copy ..\SFML\extlibs\bin\*.* ..\Build\$(Configuration)\
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RLC_Bullet.h" />
+    <ClInclude Include="RLC_BulletManager.h" />
     <ClInclude Include="RLC_BulletType.h" />
     <ClInclude Include="RLC_GameEntity.h" />
+    <ClInclude Include="RLC_GameEntityGroup.h" />
     <ClInclude Include="RLC_GameSession.h" />
     <ClInclude Include="RLC_GameState.h" />
     <ClInclude Include="RLC_GameStateNames.h" />

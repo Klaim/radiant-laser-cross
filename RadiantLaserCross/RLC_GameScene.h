@@ -4,29 +4,24 @@
 
 #include <vector>
 
+#include "GC_Singleton.h"
 #include "RLC_GameEntity.h"
+#include "RLC_GameEntityGroup.h"
 
 namespace rlc
 {
 	/** No documentation yet.
 	*/
-	class GameScene
+	class GameScene 
+		: public gcore::Singleton< GameScene >
+		, public GameEntityGroup
 	{
 	public:
 		GameScene();
+		~GameScene();
 
-		void add( GameEntity* game_entity );
-		void remove( GameEntity* game_entity );
-
-		void update();
-		void render();
-		
-	private:
-
-		bool m_need_sort;
-		std::vector< GameEntity* > m_entities;
-	
-		void sort();
+		void update() { update_children(); }
+		void render() { render_children(); }
 	};
 
 	
