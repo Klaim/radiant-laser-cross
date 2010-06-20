@@ -46,7 +46,7 @@ namespace rlc
 
 	void Gun::do_update()
 	{
-		cool();		
+		cool();
 	}
 
 	void Gun::cool()
