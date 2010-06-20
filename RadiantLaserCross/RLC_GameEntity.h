@@ -8,6 +8,7 @@
 
 #include "sfml/Graphics/Shape.hpp"
 
+#include <string>
 #include <boost/shared_ptr.hpp>
 
 
@@ -31,7 +32,7 @@ namespace rlc
 		PlanIdx plan_idx() const { return m_plan_idx; }
 
 		Position position() const { return m_position; }
-		void position( Position new_pos ) { m_position = new_pos; }
+		void position( Position new_pos );
 
 		Position center() const { return m_center; }
 		void center( Position new_center ) { m_center = new_center; }
@@ -43,9 +44,13 @@ namespace rlc
 		void core( Box new_box ) { m_core = new_box; }
 
 		sf::Shape core_shape();
+
+		const std::string& name() { return m_name; }
+		void name( const std::string& new_name ){ m_name = new_name; }
 						
 	private:
 
+		std::string m_name;
 
 		virtual void do_render() {};
 		virtual void do_update() {};

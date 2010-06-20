@@ -22,7 +22,7 @@ namespace rlc
 		GC_ASSERT_NOT_NULL( m_type.get() );
 		if( m_heat <= 0.0f )
 		{
-			BulletManager::instance().fire_bullet( m_type->bullet_type(), m_cannon, m_direction );
+			BulletManager::instance().fire_bullet( m_type->bullet_type(), position() + cannon(), m_direction );
 			m_heat += m_type->fire_rate();
 		}
 		
@@ -33,8 +33,16 @@ namespace rlc
 		sf::Matrix3 transformation;
 		transformation.SetFromTransformations( sf::Vector2f(), sf::Vector2f(), angle, sf::Vector2f( 1.0f, 1.0f) );
 
-		m_direction = transformation.Transform( m_direction );
+		m_direction = transformation.Transform( Vector2( 1.0f, 0.0f ) );
+		m_current_cannon = transformation.Transform( m_cannon );
 	}
+
+	void Gun::cannon( Position new_cannon )
+	{
+		m_cannon = new_cannon;
+		m_current_cannon = m_cannon;
+	}
+
 
 	void Gun::do_update()
 	{
@@ -47,7 +55,7 @@ namespace rlc
 		{
 			m_heat -= 1.0f;
 			if( m_heat < 0.0f )
-				m_heat == 0.0f;
+				m_heat = 0.0f;
 		}
 	}
 

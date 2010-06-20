@@ -56,7 +56,7 @@ namespace rlc
 		{
 		public:
 
-			GunType( BulletTypePtr bt ) : m_bullet_type( bt ) { GC_ASSERT_NOT_NULL(m_bullet_type.get()); }
+			GunType( BulletTypePtr bt ) : m_bullet_type( bt ) { GC_ASSERT_NOT_NULL(m_bullet_type.get());  }
 
 			BulletTypePtr bullet_type() const { return m_bullet_type;}
 			float fire_rate() const { return 5.0f; }
@@ -75,8 +75,7 @@ namespace rlc
 
 	{
 		core( Box(-4,-4,4,4) );
-		position( Position( SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 ) ) ;
-
+		
 		BulletTypePtr test_bullet_type_0 = boost::make_shared<test::BulletType>( gun_color(0) );
 		BulletTypePtr test_bullet_type_1 = boost::make_shared<test::BulletType>( gun_color(1) );
 		BulletTypePtr test_bullet_type_2 = boost::make_shared<test::BulletType>( gun_color(2) );
@@ -92,10 +91,23 @@ namespace rlc
 		set_gun( boost::make_shared<Gun>( test_gun_type_2 ), 2 );
 		set_gun( boost::make_shared<Gun>( test_gun_type_3 ), 3 );
 
+		get_gun(0)->name( "Gun_A" );
+		get_gun(1)->name( "Gun_B" );
+		get_gun(2)->name( "Gun_C" );
+		get_gun(3)->name( "Gun_D" );
+
+
+		get_gun(0)->cannon(Position(GUN_DISTANCE + GUN_WIDTH,0.0f));
+		get_gun(1)->cannon(Position(GUN_DISTANCE + GUN_WIDTH,0.0f));
+		get_gun(2)->cannon(Position(GUN_DISTANCE + GUN_WIDTH,0.0f));
+		get_gun(3)->cannon(Position(GUN_DISTANCE + GUN_WIDTH,0.0f));
+		
 		get_gun(0)->direction( Vector2( 1.0f, 0.0f ) );
 		get_gun(1)->direction( Vector2( 0.0f, -1.0f ) );
 		get_gun(2)->direction( Vector2( -1.0f, 0.0f ) );
 		get_gun(3)->direction( Vector2( 0.0f, 1.0f ) );
+
+		position( Position( SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 ) ) ;
 	}
 
 	void PlayerShip::do_update()
@@ -157,19 +169,19 @@ namespace rlc
 		}
 
 		// FIRE
-		if( input.IsKeyDown( Key::Numpad6 ) )
+		if( input.IsKeyDown( Key::Numpad6 ) || input.IsJoystickButtonDown( 0, 2 ) )
 		{
 			fire_gun( gun_id( 0 ) );
 		}
-		if( input.IsKeyDown( Key::Numpad8 ) )
+		if( input.IsKeyDown( Key::Numpad8 ) || input.IsJoystickButtonDown( 0, 3 ) )
 		{
 			fire_gun( gun_id( 1 ) );
 		}
-		if( input.IsKeyDown( Key::Numpad4 ) )
+		if( input.IsKeyDown( Key::Numpad4 ) || input.IsJoystickButtonDown( 0, 0 ) )
 		{
 			fire_gun( gun_id( 2 ) );
 		}
-		if( input.IsKeyDown( Key::Numpad5 ) )
+		if( input.IsKeyDown( Key::Numpad5 ) || input.IsJoystickButtonDown( 0, 1 ) )
 		{
 			fire_gun( gun_id( 3 ) );
 		}
@@ -204,10 +216,11 @@ namespace rlc
 
 			for( unsigned int i = 0; i < guns_count(); ++i )
 			{
-				if( has_gun( i ) )
+				unsigned int gid = i;
+				if( has_gun( gid ) )
 				{
-					GunSlot gun = get_gun( i );
-					Orientation gun_dir = gun_direction( i );
+					GunSlot gun = get_gun( gid );
+					Orientation gun_dir = gun_direction( gid );
 					gun->direction( gun_dir );
 				
 				}
@@ -259,16 +272,14 @@ namespace rlc
 		const float HALF_HEIGHT = GUN_HEIGHT / 2;
 
 		sf::Shape gun_shape = sf::Shape::Rectangle( GUN_DISTANCE, -HALF_HEIGHT, GUN_DISTANCE + GUN_WIDTH, HALF_HEIGHT , gun_color( gun_idx ) );
-		sf::Shape cannon_shape = sf::Shape::Circle( GUN_DISTANCE + GUN_WIDTH, 0.0f , 3.0f, sf::Color::White );
+		sf::Shape cannon_shape = sf::Shape::Circle( gun->cannon(), 3.0f, sf::Color::White );
 
 		Orientation gun_dir = gun_direction( gun_idx );
 		gun_shape.Rotate( gun_dir );
-		gun_shape.Move( position() );
-		
-		cannon_shape.Rotate( gun_dir );
-		cannon_shape.Move( position() );
-		gun->cannon( position() + Position( GUN_DISTANCE + GUN_WIDTH, 0.0f ) ); // THIS IS VERY BAD!!!
 
+		gun_shape.Move( position() );
+		cannon_shape.Move( position() );
+				
 		Game::current().display().Draw( gun_shape );
 		Game::current().display().Draw( cannon_shape );
 	}
@@ -314,7 +325,7 @@ namespace rlc
 
 	int PlayerShip::gun_id( unsigned int slot )
 	{
-		return (int(m_guns_setup) + slot ) % MAX_PLAYER_GUNS;
+		return ( slot - int(m_guns_setup) ) % MAX_PLAYER_GUNS;
 	}
 
 
