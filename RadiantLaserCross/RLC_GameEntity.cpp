@@ -19,10 +19,23 @@ namespace rlc
 		return result_shape;
 	}
 
+	void GameEntity::position( Position new_pos )
+	{
+		Vector2 translation = new_pos - m_position;
+		m_position = new_pos;
+
+		for( Entities::const_iterator it = children().begin(); it != children().end(); ++it )
+		{
+			(*it)->position( (*it)->position() + translation );
+		}
+	}
+
 	bool in_screen( const GameEntity& entity )
 	{
 		sf::FloatRect screen_rect( 0.0f, 0.0f, float(SCREEN_WIDTH), float(SCREEN_HEIGHT) );
-		return screen_rect.Intersects( entity.core() ); 
+		sf::FloatRect entity_core = entity.core();
+		entity_core.Offset( entity.position().x, entity.position().y );
+		return screen_rect.Intersects( entity_core ); 
 	}
 
 }

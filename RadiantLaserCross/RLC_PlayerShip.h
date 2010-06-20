@@ -14,9 +14,9 @@ namespace rlc
 	enum GunsSetup
 	{
 		GunsSetup_East = 0,
-		GunsSetup_Up,
-		GunsSetup_Left,
-		GunsSetup_Down,
+		GunsSetup_North,
+		GunsSetup_West,
+		GunsSetup_South,
 	};
 	
 	/** No documentation yet.
