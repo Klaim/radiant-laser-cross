@@ -109,6 +109,7 @@ namespace rlc
 		get_gun(3)->direction( Vector2( 0.0f, 1.0f ) );
 
 		position( Position( SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2 ) ) ;
+		rotate_guns( 1 );
 	}
 
 	void PlayerShip::do_update()

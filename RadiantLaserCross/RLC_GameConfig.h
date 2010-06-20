@@ -6,20 +6,18 @@
 
 namespace rlc
 {
-	// hardcoded configuration
-	// TODO : fill from config file
+	
+	extern const unsigned int SCREEN_WIDTH;
+	extern const unsigned int SCREEN_HEIGHT;
 
-	const unsigned int SCREEN_WIDTH = 1024;
-	const unsigned int SCREEN_HEIGHT = 768;
+	extern const unsigned int GAME_SCENE_WIDTH;
+	extern const unsigned int GAME_SCENE_HEIGHT;
 
-	const unsigned int GAME_SCENE_WIDTH = 600;
-	const unsigned int GAME_SCENE_HEIGHT = SCREEN_HEIGHT;
+	extern const std::string GAME_TITLE;
 
-	const std::string GAME_TITLE = "Radiant Laser Cross";
+	extern const float TICK_TIME;
 
-	const float TICK_TIME = 1.0f / 60.0f;
-
-	const float PLAYER_SHIP_SPEED = 5.0f;
+	extern const float PLAYER_SHIP_SPEED;
 
 }
 
