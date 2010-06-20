@@ -23,6 +23,7 @@ namespace rlc
 	const float GUN_HEIGHT = 16.0f;
 
 	const float GUN_ANGLE_INTERVAL = 360.0f / float(MAX_PLAYER_GUNS);
+	const float GUN_FIRE_BORDER_ANGLE = (GUN_ANGLE_INTERVAL / 2.0f);
 
 	const float GUN_ROTATION_SPEED = 5.0f;
 
@@ -171,19 +172,19 @@ namespace rlc
 		// FIRE
 		if( input.IsKeyDown( Key::Numpad6 ) || input.IsJoystickButtonDown( 0, 2 ) )
 		{
-			fire_gun( gun_id( 0 ) );
+			fire( GunsSetup_East );
 		}
 		if( input.IsKeyDown( Key::Numpad8 ) || input.IsJoystickButtonDown( 0, 3 ) )
 		{
-			fire_gun( gun_id( 1 ) );
+			fire( GunsSetup_North );
 		}
 		if( input.IsKeyDown( Key::Numpad4 ) || input.IsJoystickButtonDown( 0, 0 ) )
 		{
-			fire_gun( gun_id( 2 ) );
+			fire( GunsSetup_West );
 		}
 		if( input.IsKeyDown( Key::Numpad5 ) || input.IsJoystickButtonDown( 0, 1 ) )
 		{
-			fire_gun( gun_id( 3 ) );
+			fire( GunsSetup_South );
 		}
 		
 	}
@@ -222,6 +223,7 @@ namespace rlc
 					GunSlot gun = get_gun( gid );
 					Orientation gun_dir = gun_direction( gid );
 					gun->direction( gun_dir );
+					gun->orientation( gun_dir );
 				
 				}
 			}
@@ -299,7 +301,10 @@ namespace rlc
 
 	rlc::Orientation PlayerShip::gun_direction( unsigned int gun_idx ) const
 	{
-		return m_guns_orientation + slot_direction( gun_idx );
+		float result = m_guns_orientation + slot_direction( gun_idx );
+		while( result >= 360.0f )
+			result -= 360.0f;
+		return result;
 	}
 
 
@@ -326,6 +331,34 @@ namespace rlc
 	int PlayerShip::gun_id( unsigned int slot )
 	{
 		return ( slot - int(m_guns_setup) ) % MAX_PLAYER_GUNS;
+	}
+
+	void PlayerShip::fire( GunsSetup dir )
+	{
+		if( is_rotating_guns() )
+		{
+			const Orientation target_dir = slot_direction( dir );
+			Orientation min_orientation = target_dir - GUN_FIRE_BORDER_ANGLE;
+			Orientation max_orientation = target_dir + GUN_FIRE_BORDER_ANGLE;
+
+			for( unsigned int gun_idx = 0; gun_idx < guns_count(); ++gun_idx )
+			{
+				GunSlot gun = get_gun( gun_idx );
+				const Orientation gun_dir = gun->orientation();
+
+				if( gun_dir <= max_orientation && gun_dir >= min_orientation )
+				{
+					gun->fire();
+				}
+
+			}
+
+		}
+		else
+		{
+			fire_gun( gun_id( dir ) );
+		}
+		
 	}
 
 

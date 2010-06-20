@@ -51,6 +51,8 @@ namespace rlc
 
 		void rotate_guns( int setups );
 		bool is_rotating_guns() const;
+
+		void fire( GunsSetup dir );
 	};
 	
 }
