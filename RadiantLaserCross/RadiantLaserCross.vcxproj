@@ -43,7 +43,7 @@
       <WarningLevel>Level3</WarningLevel>
       <Optimization>Disabled</Optimization>
       <ForcedIncludeFiles>GC_Common.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>../GCore/GCore;../SFML/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../GCore/GCore;../SFML/include/;../ChaiScript/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -63,7 +63,7 @@ copy ..\SFML\extlibs\bin\*.* ..\Build\$(Configuration)\
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <ForcedIncludeFiles>GC_Common.h</ForcedIncludeFiles>
-      <AdditionalIncludeDirectories>../GCore/GCore;../SFML/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>../GCore/GCore;../SFML/include/;../ChaiScript/include/;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
@@ -79,6 +79,9 @@ copy ..\SFML\extlibs\bin\*.* ..\Build\$(Configuration)\
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ChaiScript\ChaiScript.vcxproj">
+      <Project>{80bfc679-79a2-83f5-d07c-5a15adf48ac3}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\GCore\GCore\GCore.vcxproj">
       <Project>{c4dfa50d-5bf4-460b-91ed-e2a328e84425}</Project>
     </ProjectReference>
