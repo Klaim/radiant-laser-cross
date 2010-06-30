@@ -1,0 +1,4 @@
+use("use.inc")
+
+assert_equal("hello", greet())
+

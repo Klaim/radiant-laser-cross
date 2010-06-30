@@ -1,7 +1,6 @@
 #include "RLC_GameConfig.h"
 
-#include <boost/property_tree/ptree.hpp>
-#include <boost/property_tree/info_parser.hpp>
+#include "chaiscript/chaiscript.hpp"
 
 namespace rlc
 {
@@ -21,10 +20,11 @@ namespace rlc
 
 	void read_config()
 	{
-		/*using namespace boost::property_tree;
-		ptree properties;
+		using namespace chaiscript;
 
-		read_info( CONFIG_FILE, properties );
-		*/
+		ChaiScript script_engine;
+
+
+
 	}
 }

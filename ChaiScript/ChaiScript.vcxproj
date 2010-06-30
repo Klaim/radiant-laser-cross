@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup />
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <WarningLevel>Level3</WarningLevel>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="include\chaiscript\chaiscript.hpp" />
+    <ClInclude Include="include\chaiscript\chaiscript_threading.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\bind_first.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\bootstrap.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\bootstrap_stl.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\boxed_value.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\dispatchkit.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\dynamic_object.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\function_call.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\function_call_detail.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\handle_return.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\operators.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\proxy_constructors.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\proxy_functions.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\proxy_functions_detail.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\register_function.hpp" />
+    <ClInclude Include="include\chaiscript\dispatchkit\type_info.hpp" />
+    <ClInclude Include="include\chaiscript\language\chaiscript_common.hpp" />
+    <ClInclude Include="include\chaiscript\language\chaiscript_engine.hpp" />
+    <ClInclude Include="include\chaiscript\language\chaiscript_eval.hpp" />
+    <ClInclude Include="include\chaiscript\language\chaiscript_parser.hpp" />
+    <ClInclude Include="include\chaiscript\language\chaiscript_prelude.hpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
