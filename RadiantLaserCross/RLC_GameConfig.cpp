@@ -1,6 +1,8 @@
+#include "chaiscript/chaiscript.hpp"
+
 #include "RLC_GameConfig.h"
 
-#include "chaiscript/chaiscript.hpp"
+
 
 namespace rlc
 {
