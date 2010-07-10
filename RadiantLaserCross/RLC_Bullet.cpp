@@ -63,7 +63,7 @@ namespace rlc
 		sf::Shape shape = m_type->bullet_shape();
 		shape.SetPosition( position() );
 		shape.SetRotation( orientation() );
-
+		 
 		Game::current().display().Draw( shape );
 	}
 
