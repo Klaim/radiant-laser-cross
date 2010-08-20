@@ -42,7 +42,7 @@ namespace rlc
 				return sf::Shape::Circle( 0.0f, 0.0f, 4.0f, m_bullet_color );
 			}
 
-			float bullet_speed() const { return 10.0f; }
+			float bullet_speed() const { return 20.0f; }
 			sf::Color bullet_color() const { return m_bullet_color; }
 
 			void bullet_behavior( Bullet& bullet ) const {  }
@@ -153,17 +153,18 @@ namespace rlc
 				move.y += 1;
 		}
 
+		
 		move *= PLAYER_SHIP_SPEED;
 		position += move;
 		this->position( position );
 
 		if( !is_rotating_guns() )
 		{
-			if( input.IsKeyDown( Key::Numpad7 ) || input.IsJoystickButtonDown( 0, 6 ) )
+			if( input.IsKeyDown( Key::Numpad7 ) || input.IsJoystickButtonDown( 0, 4 ) ||input.GetJoystickAxis( 0, sf::Joy::AxisZ ) > JOYSTICK_TOLERANCE )
 			{
 				rotate_guns( 1 );
 			}
-			if( input.IsKeyDown( Key::Numpad9 ) || input.IsJoystickButtonDown( 0, 7 ) )
+			if( input.IsKeyDown( Key::Numpad9 ) || input.IsJoystickButtonDown( 0, 5 ) ||input.GetJoystickAxis( 0, sf::Joy::AxisZ ) < -JOYSTICK_TOLERANCE )
 			{
 				rotate_guns( -1 );
 			}
@@ -171,7 +172,7 @@ namespace rlc
 		}
 
 		// FIRE
-		if( input.IsKeyDown( Key::Numpad6 ) || input.IsJoystickButtonDown( 0, 2 ) )
+		if( input.IsKeyDown( Key::Numpad6 ) || input.IsJoystickButtonDown( 0, 1 ) )
 		{
 			fire( GunsSetup_East );
 		}
@@ -179,11 +180,11 @@ namespace rlc
 		{
 			fire( GunsSetup_North );
 		}
-		if( input.IsKeyDown( Key::Numpad4 ) || input.IsJoystickButtonDown( 0, 0 ) )
+		if( input.IsKeyDown( Key::Numpad4 ) || input.IsJoystickButtonDown( 0, 2 ) )
 		{
 			fire( GunsSetup_West );
 		}
-		if( input.IsKeyDown( Key::Numpad5 ) || input.IsJoystickButtonDown( 0, 1 ) )
+		if( input.IsKeyDown( Key::Numpad5 ) || input.IsJoystickButtonDown( 0, 0 ) )
 		{
 			fire( GunsSetup_South );
 		}
@@ -289,7 +290,7 @@ namespace rlc
 
 	sf::Color PlayerShip::gun_color( unsigned int gun_idx ) const
 	{
-		static const sf::Uint8 ALPHA = 170;
+		static const sf::Uint8 ALPHA = 255;
 		static const std::array< sf::Color, MAX_PLAYER_GUNS > colors = 
 		{ sf::Color( 255, 252, 0, ALPHA )
 		, sf::Color( 255, 174, 0, ALPHA )

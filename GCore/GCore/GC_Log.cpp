@@ -13,14 +13,8 @@ namespace gcore
 		, m_name(name)
 	{
 		const std::string filepath = name;
-		if(isNewFile)
-		{
-			m_fileStream.open(filepath.c_str(), std::ios_base::trunc);
-		}
-		else
-		{
-			m_fileStream.open(filepath.c_str(), std::ios_base::app);
-		}
+		m_fileStream.open(filepath.c_str(), isNewFile ? std::ios_base::trunc : std::ios_base::app );
+		
 		//new session : 
 		using namespace boost::posix_time;
 		using namespace boost::gregorian;
