@@ -15,22 +15,19 @@
 
 namespace rlc
 {
-	Game* Game::s_game = nullptr; // singleton
-
+	
 	Game::Game()
 		: m_running( false )
 		, m_window( nullptr )
 		, m_clock( nullptr )
 		, m_last_tick_time( 0.0f )
 	{
-		GC_ASSERT_NULL( s_game );
-		s_game = this;
+		
 	}
 
 	Game::~Game()
 	{
-		GC_ASSERT( s_game == this, "WTF???" );
-		s_game = nullptr;
+		
 	}
 
 	void Game::run()
