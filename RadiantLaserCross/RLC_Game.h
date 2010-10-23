@@ -5,6 +5,7 @@
 
 #include "GC_LogManager.h"
 #include "GC_Log.h"
+#include "GC_Singleton.h"
 
 #include "RLC_GameStateManager.h"
 
@@ -18,14 +19,9 @@ namespace rlc
 {
 	/** No documentation yet.
 	*/
-	class Game
+	class Game : public gcore::Singleton< Game >
 	{
 	public:
-
-		static Game& current() { GC_ASSERT_NOT_NULL(s_game); return *s_game; }
-
-		Game();
-		~Game();
 
 		void run();
 
@@ -40,6 +36,11 @@ namespace rlc
 		sf::RenderWindow& display() { GC_ASSERT_NOT_NULL( m_window ); return *m_window; }
 
 	private:
+
+		friend class gcore::Singleton < Game >;
+		Game();
+		~Game();
+
 
 		gcore::LogManager m_log_manager;
 		GameStateManager m_gamestate_manager;
@@ -63,13 +64,11 @@ namespace rlc
 		Game( const Game& other ); // no copy
 		Game& operator=( const Game& other ); // no copy
 
-		// singleton:
-		static Game* s_game;
 
 	};
 
 }
 
-#define RLC_LOG rlc::Game::current().log()
+#define RLC_LOG rlc::Game::instance().log()
 
 #endif

@@ -31,9 +31,9 @@ namespace rlc
 
 	void GameSession::update()
 	{
-		if( Game::current().display().GetInput().IsKeyDown( sf::Key::Escape ) )
+		if( Game::instance().display().GetInput().IsKeyDown( sf::Key::Escape ) )
 		{
-			Game::current().exit();
+			Game::instance().exit();
 			return;
 		}
 

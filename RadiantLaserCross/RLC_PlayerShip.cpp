@@ -122,7 +122,7 @@ namespace rlc
 	void PlayerShip::update_move()
 	{
 		using namespace sf;
-		const Input& input = Game::current().display().GetInput();
+		const Input& input = Game::instance().display().GetInput();
 
 		Position move;
 		Position position = this->position();
@@ -256,8 +256,8 @@ namespace rlc
 
 		sf::Shape ship_shape = sf::Shape::Rectangle( top_left, bottom_right , sf::Color( 0, 180, 30 ) );
 
-		Game::current().display().Draw( ship_shape );
-		Game::current().display().Draw( core_shape() );
+		Game::instance().display().Draw( ship_shape );
+		Game::instance().display().Draw( core_shape() );
 	}
 
 	void PlayerShip::render_guns()
@@ -284,8 +284,8 @@ namespace rlc
 		gun_shape.Move( position() );
 		cannon_shape.Move( position() );
 				
-		Game::current().display().Draw( gun_shape );
-		Game::current().display().Draw( cannon_shape );
+		Game::instance().display().Draw( gun_shape );
+		Game::instance().display().Draw( cannon_shape );
 	}
 
 	sf::Color PlayerShip::gun_color( unsigned int gun_idx ) const

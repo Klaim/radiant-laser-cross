@@ -64,7 +64,7 @@ namespace rlc
 		shape.SetPosition( position() );
 		shape.SetRotation( orientation() );
 		 
-		Game::current().display().Draw( shape );
+		Game::instance().display().Draw( shape );
 	}
 
 	void Bullet::move_forward()

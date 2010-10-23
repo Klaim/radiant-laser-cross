@@ -4,8 +4,8 @@ int main()
 {
 	using namespace rlc;
 
-	Game game;
-	game.run();
+	Game::create();
+	Game::instance().run();
 
 	return 0;
 }
