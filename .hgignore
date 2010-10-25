@@ -1,0 +1,16 @@
+glob:*.dll
+glob:*.ilk
+glob:*.obj
+glob:*.lib
+glob:*.exe
+glob:*.log
+glob:*.user
+glob:*.pdb
+glob:*.tlog
+glob:*.exp
+glob:*.manifest
+glob:*.suo
+glob:*.sdf
+glob:*.cache
+glob:*.idb
+glob:*.lastbuildstate
