@@ -14,3 +14,6 @@ glob:*.sdf
 glob:*.cache
 glob:*.idb
 glob:*.lastbuildstate
+glob:Build/*
+glob:*.opensdf
+glob:*.ipch
