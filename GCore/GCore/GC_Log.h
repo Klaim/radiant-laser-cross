@@ -109,31 +109,56 @@ namespace gcore
 	{
 	public:
 
+
+		template< typename T >
+		LogStreamer( Log& log, const T& text )
+			: m_log( log )
+		{
+			std::stringstream stream;
+			stream << text;
+			m_log.addText( stream.str() );
+		}
+
+		template<>
 		LogStreamer( Log& log, const std::string& text )
 			: m_log( log )
 		{
 			m_log.addText( text );
 		}
 
+
 		~LogStreamer()
 		{
 			m_log.logText();
 		}
 
+		template< typename T >
+		LogStreamer& operator<<( const T& text )
+		{
+			std::stringstream stream;
+			stream << text;
+			m_log.addText( stream.str() );
+			return *this;
+		}
+
+		template<>
 		LogStreamer& operator<<( const std::string& text )
 		{
 			m_log.addText( text );
 			return *this;
 		}
-
+		
 	private:
 
 		Log& m_log;
 
 	};
 
-	GCORE_API LogStreamer operator<<( Log& log, const std::string& message );
-
+	template< typename T >
+	inline LogStreamer operator<<( Log& log, const T& message )
+	{
+		return LogStreamer( log, message );
+	}
 
 }
 
