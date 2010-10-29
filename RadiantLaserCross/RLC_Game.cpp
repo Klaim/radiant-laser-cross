@@ -32,7 +32,7 @@ namespace rlc
 
 	void Game::run()
 	{
-		RLC_LOG << "Starting " << GAME_TITLE ;
+		RLC_LOG << "Starting " << config::GAME_TITLE ;
 
 		initialize();
 
@@ -50,7 +50,11 @@ namespace rlc
 
 	void Game::initialize()
 	{
+		using namespace config;
+
 		RLC_LOG << "Initialization...";
+
+		load_config();
 
 		// first create the window
 		GC_ASSERT_NULL( m_window );
@@ -102,10 +106,10 @@ namespace rlc
 		const float time_since_start = m_clock->GetElapsedTime();
 		float time_since_last_tick = time_since_start - m_last_tick_time;
 
-		while( time_since_last_tick > TICK_TIME )
+		while( time_since_last_tick > config::TICK_TIME )
 		{
 			m_last_tick_time = time_since_start;
-			time_since_last_tick -= TICK_TIME;
+			time_since_last_tick -= config::TICK_TIME;
 
 			one_game_tick();
 		}

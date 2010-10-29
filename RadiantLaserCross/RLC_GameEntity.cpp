@@ -32,6 +32,8 @@ namespace rlc
 
 	bool in_screen( const GameEntity& entity )
 	{
+		using namespace config;
+
 		sf::FloatRect screen_rect( 0.0f, 0.0f, float(SCREEN_WIDTH), float(SCREEN_HEIGHT) );
 		sf::FloatRect entity_core = entity.core();
 		entity_core.Offset( entity.position().x, entity.position().y );

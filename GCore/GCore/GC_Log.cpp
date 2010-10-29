@@ -104,10 +104,6 @@ namespace gcore
 		}
 	}
 
-	LogStreamer operator<<( Log& log, const std::string& message )
-	{
-		return LogStreamer( log, message );
-	}
 
 
 }

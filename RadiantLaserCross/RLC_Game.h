@@ -17,13 +17,15 @@ namespace sf
 
 namespace rlc
 {
-	/** No documentation yet.
+	/** The game object representing the whole game.
 	*/
 	class Game : public gcore::Singleton< Game >
 	{
 	public:
 
+		/** Run the game. */
 		void run();
+
 
 		bool is_running() const { return m_running; }
 		void exit() { m_running = false; }

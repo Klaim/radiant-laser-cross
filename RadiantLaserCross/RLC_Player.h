@@ -9,7 +9,7 @@ namespace rlc
 	typedef unsigned long PlayerScore;
 	typedef unsigned short PlayerLife;
 
-	/** No documentation yet.
+	/** Player's state object.
 	*/
 	class Player
 	{
