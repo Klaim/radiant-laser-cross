@@ -15,8 +15,8 @@ namespace rlc
 
 		const std::string CONFIG_FILE = "game.cfg";
 		
-		unsigned int SCREEN_WIDTH = 1024;
-		unsigned int SCREEN_HEIGHT = 768;
+		const unsigned int SCREEN_WIDTH = 1024;
+		const unsigned int SCREEN_HEIGHT = 768;
 
 		unsigned int GAME_SCENE_WIDTH = 600;
 		unsigned int GAME_SCENE_HEIGHT = SCREEN_HEIGHT;
@@ -101,9 +101,7 @@ namespace rlc
 
 		void read_screen_config( const ptree& infos )
 		{
-			read_parameter( SCREEN_WIDTH, "Screen Width", "screen.width", infos );
-			read_parameter( SCREEN_HEIGHT, "Screen Height", "screen.height", infos );
-
+		
 		}
 
 		void read_input_config( const ptree& infos )

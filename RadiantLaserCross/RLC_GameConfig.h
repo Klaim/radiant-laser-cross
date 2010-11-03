@@ -9,8 +9,8 @@ namespace rlc
 	namespace config
 	{
 
-		extern unsigned int SCREEN_WIDTH;
-		extern unsigned int SCREEN_HEIGHT;
+		extern const unsigned int SCREEN_WIDTH;
+		extern const unsigned int SCREEN_HEIGHT;
 
 		extern unsigned int GAME_SCENE_WIDTH;
 		extern unsigned int GAME_SCENE_HEIGHT;
