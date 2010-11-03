@@ -49,6 +49,11 @@ namespace rlc
 		int JOYSTICK_PLAYERSHIP_ROTATE_RIGHT	= 4;
 		int JOYSTICK_PLAYERSHIP_ROTATE_LEFT		= 5;
 
+		int JOYSTICK_PLAYERSHIP_ROTATE_AXIS		= -1;
+		int JOYSTICK_PLAYERSHIP_FIRE_AXIS_X		= -1;
+		int JOYSTICK_PLAYERSHIP_FIRE_AXIS_Y		= -1;
+
+
 
 		using namespace boost::property_tree;
 
@@ -126,6 +131,10 @@ namespace rlc
 
 			read_parameter( JOYSTICK_PLAYERSHIP_ROTATE_LEFT, "Joystick : Player ship guns rotate left", "input.joystick.rotate.left", infos );
 			read_parameter( JOYSTICK_PLAYERSHIP_ROTATE_RIGHT, "Joystick : Player ship guns rotate right", "input.joystick.rotate.right", infos );
+
+			read_parameter( JOYSTICK_PLAYERSHIP_ROTATE_AXIS, "Joystick : Player ship guns rotate axis", "input.joystick.rotate.axis", infos );
+			read_parameter( JOYSTICK_PLAYERSHIP_FIRE_AXIS_X, "Joystick : Player ship guns rotate axis", "input.joystick.fire.axis_x", infos );
+			read_parameter( JOYSTICK_PLAYERSHIP_FIRE_AXIS_Y, "Joystick : Player ship guns rotate axis", "input.joystick.fire.axis_y", infos );
 
 		}
 

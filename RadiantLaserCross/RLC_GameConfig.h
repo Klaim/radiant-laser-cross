@@ -43,6 +43,11 @@ namespace rlc
 		extern int JOYSTICK_PLAYERSHIP_ROTATE_LEFT;
 		extern int JOYSTICK_PLAYERSHIP_ROTATE_RIGHT;
 
+		extern int JOYSTICK_PLAYERSHIP_ROTATE_AXIS;
+		extern int JOYSTICK_PLAYERSHIP_FIRE_AXIS_X;
+		extern int JOYSTICK_PLAYERSHIP_FIRE_AXIS_Y;
+
+
 		/** Load the config file if it exists and extract all configuration informations it can find in it.
 			The config file is assumed to be written in the INFO format.
 		*/
