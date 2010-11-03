@@ -41,6 +41,15 @@ namespace rlc
 		int KEYBOARD_PLAYERSHIP_ROTATE_RIGHT	= 'o';
 		int KEYBOARD_PLAYERSHIP_ROTATE_LEFT		= 'u';
 
+		int JOYSTICK_PLAYERSHIP_FIRE_LEFT		= 2;
+		int JOYSTICK_PLAYERSHIP_FIRE_RIGHT		= 1;
+		int JOYSTICK_PLAYERSHIP_FIRE_UP			= 0;
+		int JOYSTICK_PLAYERSHIP_FIRE_DOWN		= 2;
+
+		int JOYSTICK_PLAYERSHIP_ROTATE_RIGHT	= 4;
+		int JOYSTICK_PLAYERSHIP_ROTATE_LEFT		= 5;
+
+
 		using namespace boost::property_tree;
 
 		void read_screen_config( const ptree& infos );
@@ -81,7 +90,7 @@ namespace rlc
 		}
 
 		template < typename ParamType, typename T >
-		void read_parameter_force( T& parameter, const std::string& parameter_name, const std::string& info_adress, const ptree& infos )
+		void read_parameter_cast( T& parameter, const std::string& parameter_name, const std::string& info_adress, const ptree& infos )
 		{
 			auto default_param = parameter;
 			auto value = infos.get< ParamType >( info_adress );
@@ -99,18 +108,26 @@ namespace rlc
 
 		void read_input_config( const ptree& infos )
 		{
-			read_parameter_force<char>( KEYBOARD_PLAYERSHIP_MOVE_LEFT, "Keyboard : Player ship move left", "input.player.move.left", infos );
-			read_parameter_force<char>( KEYBOARD_PLAYERSHIP_MOVE_RIGHT, "Keyboard : Player ship move right", "input.player.move.right", infos );
-			read_parameter_force<char>( KEYBOARD_PLAYERSHIP_MOVE_UP, "Keyboard : Player ship move up", "input.player.move.up", infos );
-			read_parameter_force<char>( KEYBOARD_PLAYERSHIP_MOVE_DOWN, "Keyboard : Player ship move down", "input.player.move.down", infos );
+			read_parameter_cast<char>( KEYBOARD_PLAYERSHIP_MOVE_LEFT, "Keyboard : Player ship move left", "input.keyboard.move.left", infos );
+			read_parameter_cast<char>( KEYBOARD_PLAYERSHIP_MOVE_RIGHT, "Keyboard : Player ship move right", "input.keyboard.move.right", infos );
+			read_parameter_cast<char>( KEYBOARD_PLAYERSHIP_MOVE_UP, "Keyboard : Player ship move up", "input.keyboard.move.up", infos );
+			read_parameter_cast<char>( KEYBOARD_PLAYERSHIP_MOVE_DOWN, "Keyboard : Player ship move down", "input.keyboard.move.down", infos );
 
-			read_parameter_force<char>( KEYBOARD_PLAYERSHIP_FIRE_LEFT, "Keyboard : Player ship fire left", "input.player.fire.left", infos );
-			read_parameter_force<char>( KEYBOARD_PLAYERSHIP_FIRE_RIGHT, "Keyboard : Player ship fire right", "input.player.fire.right", infos );
-			read_parameter_force<char>( KEYBOARD_PLAYERSHIP_FIRE_UP, "Keyboard : Player ship fire up", "input.player.fire.up", infos );
-			read_parameter_force<char>( KEYBOARD_PLAYERSHIP_FIRE_DOWN, "Keyboard : Player ship fire down", "input.player.fire.down", infos );
+			read_parameter_cast<char>( KEYBOARD_PLAYERSHIP_FIRE_LEFT, "Keyboard : Player ship fire left", "input.keyboard.fire.left", infos );
+			read_parameter_cast<char>( KEYBOARD_PLAYERSHIP_FIRE_RIGHT, "Keyboard : Player ship fire right", "input.keyboard.fire.right", infos );
+			read_parameter_cast<char>( KEYBOARD_PLAYERSHIP_FIRE_UP, "Keyboard : Player ship fire up", "input.keyboard.fire.up", infos );
+			read_parameter_cast<char>( KEYBOARD_PLAYERSHIP_FIRE_DOWN, "Keyboard : Player ship fire down", "input.keyboard.fire.down", infos );
 
-			read_parameter_force<char>( KEYBOARD_PLAYERSHIP_ROTATE_LEFT, "Keyboard : Player ship guns rotate left", "input.player.rotate.left", infos );
-			read_parameter_force<char>( KEYBOARD_PLAYERSHIP_ROTATE_RIGHT, "Keyboard : Player ship guns rotate right", "input.player.rotate.right", infos );
+			read_parameter_cast<char>( KEYBOARD_PLAYERSHIP_ROTATE_LEFT, "Keyboard : Player ship guns rotate left", "input.keyboard.rotate.left", infos );
+			read_parameter_cast<char>( KEYBOARD_PLAYERSHIP_ROTATE_RIGHT, "Keyboard : Player ship guns rotate right", "input.keyboard.rotate.right", infos );
+
+			read_parameter( JOYSTICK_PLAYERSHIP_FIRE_LEFT, "Joystick : Player ship fire left", "input.joystick.fire.left", infos );
+			read_parameter( JOYSTICK_PLAYERSHIP_FIRE_RIGHT, "Joystick : Player ship fire right", "input.joystick.fire.right", infos );
+			read_parameter( JOYSTICK_PLAYERSHIP_FIRE_UP, "Joystick : Player ship fire up", "input.joystick.fire.up", infos );
+			read_parameter( JOYSTICK_PLAYERSHIP_FIRE_DOWN, "Joystick : Player ship fire down", "input.joystick.fire.down", infos );
+
+			read_parameter( JOYSTICK_PLAYERSHIP_ROTATE_LEFT, "Joystick : Player ship guns rotate left", "input.joystick.rotate.left", infos );
+			read_parameter( JOYSTICK_PLAYERSHIP_ROTATE_RIGHT, "Joystick : Player ship guns rotate right", "input.joystick.rotate.right", infos );
 
 		}
 
