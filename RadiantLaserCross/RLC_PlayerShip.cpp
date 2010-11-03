@@ -119,7 +119,25 @@ namespace rlc
 		update_move();
 		update_guns();
 	}
-	
+
+	const float SQUARE_ANGLE = 90.0f;
+	const float UP_ANGLE = SQUARE_ANGLE * 4.0f;
+	const float LEFT_ANGLE = SQUARE_ANGLE * 3.0f;
+	const float DOWN_ANGLE = SQUARE_ANGLE * 2.0f;
+	const float RIGHT_ANGLE = SQUARE_ANGLE;
+
+	inline bool in_circle_angle( const float& val, const float& target_angle, const float& tolerance )
+	{
+		if( val < 0.0f ) return false;
+
+		const float min_angle = target_angle - tolerance;
+		const float max_angle = target_angle + tolerance;
+		return (( val >= min_angle )
+			&& ( val <= max_angle )
+			)
+			|| ( target_angle >= UP_ANGLE && val <= tolerance )
+			;
+	}
 	
 	void PlayerShip::update_move()
 	{
@@ -130,11 +148,18 @@ namespace rlc
 		Position move;
 		Position position = this->position();
 		
-		static const float JOYSTICK_TOLERANCE = 1.0f;
+		static const float MOVE_JOYSTICK_TOLERANCE = 33.0f;
+		static const float FIRE_JOYSTICK_TOLERANCE = 66.0f;
+		static const float POV_ANGLE_TOLERANCE = 55.0f;
+
+		
+		const float pov_angle = input.GetJoystickAxis( 0, sf::Joy::AxisPOV );
+
 
 		if( input.IsKeyDown( Key::Left ) 
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_MOVE_LEFT ) ) 
-		||	input.GetJoystickAxis(0, sf::Joy::AxisX ) < -JOYSTICK_TOLERANCE 
+		||	input.GetJoystickAxis( 0, sf::Joy::AxisX ) < -MOVE_JOYSTICK_TOLERANCE 
+		||	in_circle_angle( pov_angle, LEFT_ANGLE, POV_ANGLE_TOLERANCE )
 		)
 		{
 			if( position.x > FULL_SHIP_WIDTH/2 )
@@ -143,7 +168,8 @@ namespace rlc
 
 		if( input.IsKeyDown( Key::Right ) 
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_MOVE_RIGHT ) ) 
-		||	input.GetJoystickAxis(0, sf::Joy::AxisX ) > JOYSTICK_TOLERANCE 
+		||	input.GetJoystickAxis( 0, sf::Joy::AxisX ) > MOVE_JOYSTICK_TOLERANCE 
+		||	in_circle_angle( pov_angle, RIGHT_ANGLE, POV_ANGLE_TOLERANCE )
 		)
 		{
 			if( position.x < ( SCREEN_WIDTH - (FULL_SHIP_WIDTH/2) ) ) 
@@ -152,7 +178,8 @@ namespace rlc
 
 		if( input.IsKeyDown( Key::Up ) 
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_MOVE_UP ) ) 
-		||	input.GetJoystickAxis(0, sf::Joy::AxisY ) < -JOYSTICK_TOLERANCE 
+		||	input.GetJoystickAxis( 0, sf::Joy::AxisY ) < -MOVE_JOYSTICK_TOLERANCE 
+		||	in_circle_angle( pov_angle, UP_ANGLE, POV_ANGLE_TOLERANCE ) 
 		)
 		{
 			if( position.y > FULL_SHIP_WIDTH/2 )
@@ -161,7 +188,8 @@ namespace rlc
 
 		if( input.IsKeyDown( Key::Down ) 
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_MOVE_DOWN ) ) 
-		||	input.GetJoystickAxis(0, sf::Joy::AxisY ) > JOYSTICK_TOLERANCE 
+		||	input.GetJoystickAxis( 0, sf::Joy::AxisY ) > MOVE_JOYSTICK_TOLERANCE 
+		||	in_circle_angle( pov_angle, DOWN_ANGLE, POV_ANGLE_TOLERANCE )
 		)
 		{
 			if( position.y < ( SCREEN_HEIGHT - (FULL_SHIP_WIDTH/2) ) )
@@ -176,18 +204,18 @@ namespace rlc
 		if( !is_rotating_guns() )
 		{
 			if( input.IsKeyDown( Key::Numpad7 ) 
-			||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_ROTATE_RIGHT ) )
-			||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_ROTATE_RIGHT ) 
-			||	input.GetJoystickAxis( 0, sf::Joy::AxisZ ) > JOYSTICK_TOLERANCE
+			||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_ROTATE_LEFT ) )
+			||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_ROTATE_LEFT ) 
+			||	input.GetJoystickAxis( 0, sf::Joy::AxisZ ) > MOVE_JOYSTICK_TOLERANCE
 			)
 			{
 				rotate_guns( 1 );
 			}
 
 			if( input.IsKeyDown( Key::Numpad9 )
-			||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_ROTATE_LEFT ) )
-			||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_ROTATE_LEFT ) 
-			||	input.GetJoystickAxis( 0, sf::Joy::AxisZ ) < -JOYSTICK_TOLERANCE 
+			||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_ROTATE_RIGHT ) )
+			||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_ROTATE_RIGHT ) 
+			||	input.GetJoystickAxis( 0, sf::Joy::AxisZ ) < -MOVE_JOYSTICK_TOLERANCE 
 			)
 			{
 				rotate_guns( -1 );
@@ -198,7 +226,8 @@ namespace rlc
 		// FIRE
 		if( input.IsKeyDown( Key::Numpad6 ) 
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_FIRE_RIGHT ) )
-		||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_FIRE_RIGHT ) 
+		||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_FIRE_RIGHT )
+		||	input.GetJoystickAxis( 0, sf::Joy::AxisU ) > FIRE_JOYSTICK_TOLERANCE
 		)
 		{
 			fire( GunsSetup_East );
@@ -207,6 +236,7 @@ namespace rlc
 		if( input.IsKeyDown( Key::Numpad8 ) 
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_FIRE_UP ) )
 		||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_FIRE_UP ) 
+		||	input.GetJoystickAxis( 0, sf::Joy::AxisR ) < -FIRE_JOYSTICK_TOLERANCE
 		)
 		{
 			fire( GunsSetup_North );
@@ -215,6 +245,7 @@ namespace rlc
 		if( input.IsKeyDown( Key::Numpad4 )
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_FIRE_LEFT ) )
 		||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_FIRE_LEFT ) 
+		||	input.GetJoystickAxis( 0, sf::Joy::AxisU ) < -FIRE_JOYSTICK_TOLERANCE
 		)
 		{
 			fire( GunsSetup_West );
@@ -223,6 +254,7 @@ namespace rlc
 		if( input.IsKeyDown( Key::Numpad5 ) 
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_FIRE_DOWN ) )
 		||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_FIRE_DOWN ) 
+		||	input.GetJoystickAxis( 0, sf::Joy::AxisR ) > FIRE_JOYSTICK_TOLERANCE 
 		)
 		{
 			fire( GunsSetup_South );
