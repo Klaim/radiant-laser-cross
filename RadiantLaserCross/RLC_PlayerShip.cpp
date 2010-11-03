@@ -206,7 +206,7 @@ namespace rlc
 			if( input.IsKeyDown( Key::Numpad7 ) 
 			||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_ROTATE_LEFT ) )
 			||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_ROTATE_LEFT ) 
-			||	input.GetJoystickAxis( 0, sf::Joy::AxisZ ) > MOVE_JOYSTICK_TOLERANCE
+			||	input.GetJoystickAxis( 0, Joy::Axis( JOYSTICK_PLAYERSHIP_ROTATE_AXIS ) ) > MOVE_JOYSTICK_TOLERANCE
 			)
 			{
 				rotate_guns( 1 );
@@ -215,7 +215,7 @@ namespace rlc
 			if( input.IsKeyDown( Key::Numpad9 )
 			||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_ROTATE_RIGHT ) )
 			||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_ROTATE_RIGHT ) 
-			||	input.GetJoystickAxis( 0, sf::Joy::AxisZ ) < -MOVE_JOYSTICK_TOLERANCE 
+			||	input.GetJoystickAxis( 0, Joy::Axis( JOYSTICK_PLAYERSHIP_ROTATE_AXIS ) ) < -MOVE_JOYSTICK_TOLERANCE 
 			)
 			{
 				rotate_guns( -1 );
@@ -227,7 +227,7 @@ namespace rlc
 		if( input.IsKeyDown( Key::Numpad6 ) 
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_FIRE_RIGHT ) )
 		||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_FIRE_RIGHT )
-		||	input.GetJoystickAxis( 0, sf::Joy::AxisU ) > FIRE_JOYSTICK_TOLERANCE
+		||	input.GetJoystickAxis( 0, Joy::Axis( JOYSTICK_PLAYERSHIP_FIRE_AXIS_X ) ) > FIRE_JOYSTICK_TOLERANCE
 		)
 		{
 			fire( GunsSetup_East );
@@ -236,7 +236,7 @@ namespace rlc
 		if( input.IsKeyDown( Key::Numpad8 ) 
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_FIRE_UP ) )
 		||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_FIRE_UP ) 
-		||	input.GetJoystickAxis( 0, sf::Joy::AxisR ) < -FIRE_JOYSTICK_TOLERANCE
+		||	input.GetJoystickAxis( 0, Joy::Axis( JOYSTICK_PLAYERSHIP_FIRE_AXIS_Y ) ) < -FIRE_JOYSTICK_TOLERANCE
 		)
 		{
 			fire( GunsSetup_North );
@@ -245,7 +245,7 @@ namespace rlc
 		if( input.IsKeyDown( Key::Numpad4 )
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_FIRE_LEFT ) )
 		||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_FIRE_LEFT ) 
-		||	input.GetJoystickAxis( 0, sf::Joy::AxisU ) < -FIRE_JOYSTICK_TOLERANCE
+		||	input.GetJoystickAxis( 0, Joy::Axis( JOYSTICK_PLAYERSHIP_FIRE_AXIS_X ) ) < -FIRE_JOYSTICK_TOLERANCE
 		)
 		{
 			fire( GunsSetup_West );
@@ -254,7 +254,7 @@ namespace rlc
 		if( input.IsKeyDown( Key::Numpad5 ) 
 		||	input.IsKeyDown( Key::Code( KEYBOARD_PLAYERSHIP_FIRE_DOWN ) )
 		||	input.IsJoystickButtonDown( 0, JOYSTICK_PLAYERSHIP_FIRE_DOWN ) 
-		||	input.GetJoystickAxis( 0, sf::Joy::AxisR ) > FIRE_JOYSTICK_TOLERANCE 
+		||	input.GetJoystickAxis( 0, Joy::Axis( JOYSTICK_PLAYERSHIP_FIRE_AXIS_Y ) ) > FIRE_JOYSTICK_TOLERANCE 
 		)
 		{
 			fire( GunsSetup_South );
