@@ -35,6 +35,14 @@ namespace rlc
 		extern int KEYBOARD_PLAYERSHIP_ROTATE_LEFT;
 		extern int KEYBOARD_PLAYERSHIP_ROTATE_RIGHT;
 
+		extern int JOYSTICK_PLAYERSHIP_FIRE_LEFT;
+		extern int JOYSTICK_PLAYERSHIP_FIRE_RIGHT;
+		extern int JOYSTICK_PLAYERSHIP_FIRE_UP;
+		extern int JOYSTICK_PLAYERSHIP_FIRE_DOWN;
+
+		extern int JOYSTICK_PLAYERSHIP_ROTATE_LEFT;
+		extern int JOYSTICK_PLAYERSHIP_ROTATE_RIGHT;
+
 		/** Load the config file if it exists and extract all configuration informations it can find in it.
 			The config file is assumed to be written in the INFO format.
 		*/
