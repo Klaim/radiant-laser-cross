@@ -8,7 +8,7 @@
 
 namespace rlc
 {
-	/** No documentation yet.
+	/** Game session state.
 	*/
 	class GameSession 
 		: public GameState

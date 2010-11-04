@@ -7,7 +7,7 @@
 
 namespace rlc
 {
-	/** No documentation yet.
+	/** Interface for game states.
 	*/
 	class GameState
 	{
@@ -17,7 +17,7 @@ namespace rlc
 
 		virtual void begin() = 0; 
 		virtual void update() = 0;
-		virtual void render() = 0;
+		virtual void render() = 0; // TODO : rendering should be orthogonal...move that elsewhere!
 		virtual void end() = 0;
 		
 		const std::string& name() const { return m_name; }
