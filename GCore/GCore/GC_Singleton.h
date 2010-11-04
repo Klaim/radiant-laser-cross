@@ -4,6 +4,8 @@
 
 #include "GC_Common.h"
 
+#include <boost/noncopyable.hpp>
+
 namespace gcore
 {
 		
@@ -23,7 +25,7 @@ namespace gcore
 
 	*/
 	template<typename T>
-	class Singleton
+	class Singleton : boost::noncopyable
 	{
 		static T* ms_singleton;
 		protected:
