@@ -10,7 +10,8 @@
 
 namespace rlc
 {
-	/** No documentation yet.
+	/** The scene contains all the visible elements of the game at any time.
+		To make sure elements are updated and rendered, add them to this object.
 	*/
 	class GameScene 
 		: public gcore::Singleton< GameScene >

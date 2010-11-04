@@ -23,7 +23,6 @@ namespace rlc
 	{
 	public:
 
-		/** Run the game. */
 		void run();
 
 

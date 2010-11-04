@@ -9,7 +9,7 @@ namespace rlc
 {
 	class GameEntity;
 
-	/** No documentation yet.
+	/** Group of game entities that can be updated and rendered together.
 	*/
 	class GameEntityGroup
 	{
@@ -22,8 +22,7 @@ namespace rlc
 		
 		void add( GameEntity* game_entity );
 		void remove( GameEntity* game_entity );
-
-		
+				
 	
 	protected:	
 		void update_children();

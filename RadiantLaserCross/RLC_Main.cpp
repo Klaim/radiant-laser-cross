@@ -6,6 +6,7 @@ int main()
 
 	Game::create();
 	Game::instance().run();
+	Game::destroy();
 
 	return 0;
 }
