@@ -2,6 +2,7 @@
 #define RLC_GAME_H
 #pragma once
 
+#include <boost/scop>
 
 #include "GC_LogManager.h"
 #include "GC_Log.h"
@@ -60,12 +61,7 @@ namespace rlc
 		void update();
 		void one_game_tick();
 		void render();
-				
-
-		Game( const Game& other ); // no copy
-		Game& operator=( const Game& other ); // no copy
-
-
+		
 	};
 
 }

@@ -60,6 +60,7 @@ namespace rlc
 		GC_ASSERT_NULL( m_window );
 		m_window = new sf::RenderWindow( sf::VideoMode( SCREEN_WIDTH, SCREEN_HEIGHT ), GAME_TITLE, sf::Style::Titlebar | sf::Style::Close );
 		
+		// then get the clock
 		GC_ASSERT_NULL( m_clock );
 		m_clock = new sf::Clock();
 
