@@ -19,8 +19,6 @@ namespace rlc
 		
 	private:
 
-		
-		
 	};
 
 	typedef boost::shared_ptr< GunType > GunTypePtr;

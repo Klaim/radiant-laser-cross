@@ -33,10 +33,27 @@
 		1.14.1. Bullet shape, etc. should be set by the bullet type...
 	1.15. Bullet manager initialization should be with a constant taken from the gameplay (hard) configuration.
 	1.16. Look for generation of graphics in the game loop and replace them by using predefined shapes/boxes/etc.
-	
+	1.17. PlayerShip Refactoring
+		1.17.1. Move constants in gameplay config.
+		1.17.2. Rename GunSetup to GunDirection or something.
+		1.17.3. Make test bullet types and guns real (hard?) types of guns and bullets.
+		1.17.4. We have only one type of gun...right?
+		1.17.5. Factorize input updates.
+		1.17.6. Ship and Gun rendering have to be more efficient - what a mess!!!
+		1.17.7. What does mean the FUCK comment?
+		1.17.8. Review algorithms - move and gun rotation ones looks strange...
+			1.17.9. BUG : Firing while rotating on the EAST will make it 
+	1.18. Gun Refactoring
+		1.18.1. Heat concept mmight have another name, like reload time or something.
+		1.18.2. Does Guns have to be game entities? Can't they by abstract things? Not sure... Or their cannons are abstracts?
+		1.18.3. GunSlot shouldn't be jsut a (smart) pointer, it should be a class with some is_gunned() function or something like that.
+		1.18.4. WTF is m_cannon ??? m_current_cannon seems to be used instead.
+		
 	
 2. Collision system
 	2.1. Find a good 2D collision-only library
+	2.2. Setup collideable objects for game entities that need it.
+	2.3. Setup a collision callback system (or something similar).
 
 3. Ennemy system
 	3.1. Define Color codes
@@ -57,7 +74,10 @@
 		4.3.2. Custom Behaviours : move, fire, transform
 		4.3.3. Can access his gun and children entities.
 	4.4. Levels
-		4.4.1. Spawning : time - ship instance		
+		4.4.1. Spawning : time - ship instance
+		4.4.2. Level informations - displayed at level start
+		4.4.3. Load and run a level
+		4.4.4. Level listing.
 	
 5. Audio system
 	5.1. Setup audio system of SFML
@@ -71,6 +91,8 @@
 7. Utility & Debug
 	7.1. Add a (debug) pause command.
 	7.2. When paused, add a "1 step" command.
+	
+8. Move on the public repo.
 	
 - DONE ------------------------------------------------------------
 

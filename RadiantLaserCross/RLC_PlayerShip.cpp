@@ -372,7 +372,7 @@ namespace rlc
 		{ sf::Color( 255, 252, 0, ALPHA )
 		, sf::Color( 255, 174, 0, ALPHA )
 		, sf::Color( 255, 12, 0, ALPHA  )
-		, sf::Color( 174, 0, 255, ALPHA )
+		, sf::Color( 255, 60, 255, ALPHA )
 		};
 
 		return colors[ gun_idx ];
