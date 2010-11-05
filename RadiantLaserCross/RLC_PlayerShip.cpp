@@ -15,19 +15,31 @@
 
 namespace rlc
 {
-	const float SHIP_WIDTH = 32.0f;
-	const float SHIP_HEIGHT = 32.0f;
+	namespace config
+	{
+		const float SHIP_WIDTH = 32.0f;
+		const float SHIP_HEIGHT = 32.0f;
 		
-	const float GUN_DISTANCE = 26.0f;
-	const float GUN_WIDTH = 20.0f;
-	const float GUN_HEIGHT = 16.0f;
+		const float GUN_DISTANCE = 26.0f;
+		const float GUN_WIDTH = 20.0f;
+		const float GUN_HEIGHT = 16.0f;
 
-	const float GUN_ANGLE_INTERVAL = 360.0f / float(MAX_PLAYER_GUNS);
-	const float GUN_FIRE_BORDER_ANGLE = (GUN_ANGLE_INTERVAL / 2.0f);
+		const float GUN_ANGLE_INTERVAL = 360.0f / float(MAX_PLAYER_GUNS);
+		const float GUN_FIRE_BORDER_ANGLE = (GUN_ANGLE_INTERVAL / 2.0f);
 
-	const float GUN_ROTATION_SPEED = 5.0f;
+		const float GUN_ROTATION_SPEED = 5.0f;
 
-	const float FULL_SHIP_WIDTH = SHIP_WIDTH + SHIP_HEIGHT;
+		const float FULL_SHIP_WIDTH = SHIP_WIDTH + SHIP_HEIGHT;
+
+		const float SQUARE_ANGLE = 90.0f;
+		const float UP_ANGLE = SQUARE_ANGLE * 4.0f;
+		const float LEFT_ANGLE = SQUARE_ANGLE * 3.0f;
+		const float DOWN_ANGLE = SQUARE_ANGLE * 2.0f;
+		const float RIGHT_ANGLE = SQUARE_ANGLE;
+
+	}
+
+	using namespace config;
 
 	namespace test
 	{
@@ -120,12 +132,7 @@ namespace rlc
 		update_guns();
 	}
 
-	const float SQUARE_ANGLE = 90.0f;
-	const float UP_ANGLE = SQUARE_ANGLE * 4.0f;
-	const float LEFT_ANGLE = SQUARE_ANGLE * 3.0f;
-	const float DOWN_ANGLE = SQUARE_ANGLE * 2.0f;
-	const float RIGHT_ANGLE = SQUARE_ANGLE;
-
+	
 	inline bool in_circle_angle( const float& val, const float& target_angle, const float& tolerance )
 	{
 		if( val < 0.0f ) return false;
@@ -142,7 +149,6 @@ namespace rlc
 	void PlayerShip::update_move()
 	{
 		using namespace sf;
-		using namespace config;
 		const Input& input = Game::instance().display().GetInput();
 
 		Position move;

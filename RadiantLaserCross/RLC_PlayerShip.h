@@ -9,8 +9,11 @@
 
 namespace rlc
 {
-	const unsigned int MAX_PLAYER_GUNS = 4;
-	
+	namespace config
+	{
+		const unsigned int MAX_PLAYER_GUNS = 4;
+	}
+
 	enum GunsSetup
 	{
 		GunsSetup_East = 0,
@@ -22,7 +25,7 @@ namespace rlc
 	/** No documentation yet.
 	*/
 	class PlayerShip
-		: public Ship< MAX_PLAYER_GUNS >
+		: public Ship< config::MAX_PLAYER_GUNS >
 	{
 	public:
 
