@@ -20,9 +20,8 @@ namespace rlc
 		GameEntityGroup();
 		~GameEntityGroup();
 		
-		void add( GameEntity* game_entity );
-		void remove( GameEntity* game_entity );
-				
+		void add( GameEntity& game_entity );
+		void remove( GameEntity& game_entity );
 	
 	protected:	
 		void update_children();

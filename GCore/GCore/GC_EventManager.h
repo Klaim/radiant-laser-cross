@@ -209,7 +209,7 @@ namespace gcore
 	template< typename EventTypeId >
 	void EventManager<EventTypeId>::send( const EventPtr& e , bool immediate )
 	{
-		GC_ASSERT_NOT_NULL( e.get() );
+		GC_ASSERT_NOT_NULL( e );
 
 		if( immediate )
 		{
@@ -235,7 +235,7 @@ namespace gcore
 		for( EventQueue::iterator it = m_processEventQueue.begin(); it != m_processEventQueue.end(); ++it )
 		{
 			EventPtr e = *it;
-			GC_ASSERT_NOT_NULL( e.get() );
+			GC_ASSERT_NOT_NULL( e );
 			processEvent( e );
 		}
 
@@ -244,7 +244,7 @@ namespace gcore
 	template< typename EventTypeId >
 	void EventManager<EventTypeId>::processEvent( const EventPtr& e )
 	{
-		GC_ASSERT_NOT_NULL( e.get() );
+		GC_ASSERT_NOT_NULL( e );
 
 		if( m_listenerRegister.empty() ) return; // no listener registered at all!
 
@@ -266,7 +266,7 @@ namespace gcore
 	template< typename EventTypeId >
 	void EventManager<EventTypeId>::dispatchEvent( const EventPtr& e, EventListenerList& listeners )
 	{
-		GC_ASSERT_NOT_NULL( e.get() );
+		GC_ASSERT_NOT_NULL( e );
 
 		if( listeners.empty() ) return; // be lazy!!
 

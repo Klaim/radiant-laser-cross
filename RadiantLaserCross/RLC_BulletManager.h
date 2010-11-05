@@ -23,7 +23,7 @@ namespace rlc
 		void fire_bullet( const BulletTypePtr& bullet_type, Position start_pos, Direction start_dir );
 		
 	private:
-
+		
 		typedef std::vector< Bullet > Bullets;
 		Bullets m_bullets;
 

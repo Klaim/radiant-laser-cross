@@ -14,12 +14,12 @@ namespace rlc
 		, m_direction( 1.0f, 0.0f )
 		, m_heat( 0.0f )
 	{
-		GC_ASSERT_NOT_NULL( m_type.get() );
+		GC_ASSERT_NOT_NULL( m_type );
 	}
 
 	void Gun::fire()
 	{
-		GC_ASSERT_NOT_NULL( m_type.get() );
+		GC_ASSERT_NOT_NULL( m_type );
 		if( m_heat <= 0.0f )
 		{
 			BulletManager::instance().fire_bullet( m_type->bullet_type(), position() + cannon(), m_direction );

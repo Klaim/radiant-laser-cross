@@ -57,7 +57,7 @@ namespace rlc
 		{
 		public:
 
-			GunType( BulletTypePtr bt ) : m_bullet_type( bt ) { GC_ASSERT_NOT_NULL(m_bullet_type.get());  }
+			GunType( BulletTypePtr bt ) : m_bullet_type( bt ) { GC_ASSERT_NOT_NULL(m_bullet_type);  }
 
 			BulletTypePtr bullet_type() const { return m_bullet_type;}
 			float fire_rate() const { return 5.0f; }

@@ -26,7 +26,7 @@ namespace gcore
 			for( Console::CommandIndex::iterator it = console.m_commandIndex.begin(); it != console.m_commandIndex.end(); ++it )
 			{
 				const ConsoleCommandPtr command = it->second;
-				GC_ASSERT_NOT_NULL( command.get() );
+				GC_ASSERT_NOT_NULL( command );
 
 				printCommandHelp( helpText, console.commandCallPrefix(), command );
 			}

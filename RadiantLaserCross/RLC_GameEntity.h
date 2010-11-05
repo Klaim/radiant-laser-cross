@@ -15,8 +15,6 @@
 
 namespace rlc
 {
-	
-
 	/** No documentation yet.
 	*/
 	class GameEntity
@@ -24,7 +22,7 @@ namespace rlc
 	{
 	public:
 
-		GameEntity() : m_plan_idx(0), m_orientation(0.0f) {}
+		GameEntity();
 
 		void render() { do_render(); render_children(); }
 		void update() { do_update(); update_children(); }
@@ -62,8 +60,7 @@ namespace rlc
 		Position		m_center;
 		Orientation		m_orientation;
 
-		std::vector< GameEntity* > m_children;
-
+		
 	};
 
 	bool in_screen( const GameEntity& entity );

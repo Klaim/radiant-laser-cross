@@ -16,8 +16,8 @@ namespace gcore
 
 	void PhaseManager::registerPhase( const PhasePtr& phase )
 	{
-		GC_ASSERT( phase.get() != nullptr, "Tried to register a null phase!" );
-		GC_ASSERT( findPhase( phase->name() ).get() == nullptr, std::string( "Tried to register an already registered Phase! Phase Name : " ) + phase->name() );
+		GC_ASSERT( phase != nullptr, "Tried to register a null phase!" );
+		GC_ASSERT( findPhase( phase->name() ) == nullptr, std::string( "Tried to register an already registered Phase! Phase Name : " ) + phase->name() );
 		
 		// register
 		m_phaseIndex[ phase->name() ] = phase;
@@ -30,7 +30,7 @@ namespace gcore
 
 	void PhaseManager::unregisterPhase( const PhasePtr& phase )
 	{
-		GC_ASSERT( phase.get() != nullptr , "Tried to unregister a phase not registered!");
+		GC_ASSERT( phase != nullptr , "Tried to unregister a phase not registered!");
 
 		// notify
 		// phase->onUnregister(); // obsolete
@@ -60,7 +60,7 @@ namespace gcore
 
 	void PhaseManager::requestLoadPhase( const PhasePtr& phase )
 	{
-		GC_ASSERT( phase.get() != nullptr, "Requested to load a null phase..." );
+		GC_ASSERT( phase != nullptr, "Requested to load a null phase..." );
 
 		if( phase->isManaged() && phase->m_phaseManager == this )
 		{
@@ -75,7 +75,7 @@ namespace gcore
 
 	void PhaseManager::requestUnloadPhase( const PhasePtr& phase )
 	{
-		GC_ASSERT( phase.get() != nullptr, "Requested to unload a null phase..." );
+		GC_ASSERT( phase != nullptr, "Requested to unload a null phase..." );
 
 		if( phase->isManaged() && phase->m_phaseManager == this )
 		{
@@ -90,7 +90,7 @@ namespace gcore
 
 	void PhaseManager::requestActivatePhase( const PhasePtr& phase )
 	{
-		GC_ASSERT( phase.get() != nullptr, "Requested to activate a null phase..." );
+		GC_ASSERT( phase != nullptr, "Requested to activate a null phase..." );
 
 		if( phase->isManaged() && phase->m_phaseManager == this )
 		{
@@ -105,7 +105,7 @@ namespace gcore
 
 	void PhaseManager::requestTerminatePhase( const PhasePtr& phase )
 	{
-		GC_ASSERT( phase.get() != nullptr, "Requested to terminate a null phase..." );
+		GC_ASSERT( phase != nullptr, "Requested to terminate a null phase..." );
 
 		if( phase->isManaged() && phase->m_phaseManager == this )
 		{
@@ -147,7 +147,7 @@ namespace gcore
 	{
 		const PhasePtr phase = findPhase( phaseName );
 
-		if( phase.get() == nullptr )
+		if( phase == nullptr )
 		{
 			GC_EXCEPTION << "Phase \"" << phaseName << "\" not found in phase manager!" ;
 		}
