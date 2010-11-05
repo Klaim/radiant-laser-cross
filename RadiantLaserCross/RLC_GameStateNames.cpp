@@ -2,6 +2,10 @@
 
 namespace rlc
 {
-	const std::string GAMESTATE_GAME_SESSION = "game_session";
+	namespace names
+	{
+		const std::string GAMESTATE_GAME_SESSION = "game_session";
+	}
+	
 
 }
