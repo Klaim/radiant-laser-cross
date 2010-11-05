@@ -2,6 +2,8 @@
 #define RLC_GAME_H
 #pragma once
 
+#include <boost/scoped_ptr.hpp>
+
 #include "GC_LogManager.h"
 #include "GC_Log.h"
 #include "GC_Singleton.h"
@@ -45,8 +47,8 @@ namespace rlc
 		gcore::LogManager m_log_manager;
 		GameStateManager m_gamestate_manager;
 
-		sf::RenderWindow* m_window;
-		sf::Clock* m_clock;
+		boost::scoped_ptr<sf::RenderWindow> m_window;
+		boost::scoped_ptr<sf::Clock> m_clock;
 
 		float m_last_tick_time;
 
