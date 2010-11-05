@@ -182,6 +182,7 @@ copy ..\SFML\extlibs\bin\*.* ..\Build\$(Configuration)\$(Platform)\
   <ItemGroup>
     <ClInclude Include="RLC_Bullet.h" />
     <ClInclude Include="RLC_BulletManager.h" />
+    <ClInclude Include="RLC_BulletPool.h" />
     <ClInclude Include="RLC_BulletType.h" />
     <ClInclude Include="RLC_GameEntity.h" />
     <ClInclude Include="RLC_GameEntityGroup.h" />

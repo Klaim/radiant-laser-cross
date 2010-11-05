@@ -10,7 +10,6 @@ namespace rlc
 	GameScene::GameScene()
 	{
 		BulletManager::create();
-		BulletManager::instance().reset( 200 );
 	}
 
 	GameScene::~GameScene()

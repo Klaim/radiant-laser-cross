@@ -2,14 +2,15 @@
 #define RLC_GAMEENTITY_H
 #pragma once
 
+#include <string>
+#include <boost/shared_ptr.hpp>
+#include <boost/noncopyable.hpp>
 
 #include "RLC_Geometry.h"
 #include "RLC_GameEntityGroup.h"
 
 #include "sfml/Graphics/Shape.hpp"
 
-#include <string>
-#include <boost/shared_ptr.hpp>
 
 
 
@@ -18,7 +19,8 @@ namespace rlc
 	/** No documentation yet.
 	*/
 	class GameEntity
-		: public GameEntityGroup
+		: public boost::noncopyable
+		, public GameEntityGroup
 	{
 	public:
 
