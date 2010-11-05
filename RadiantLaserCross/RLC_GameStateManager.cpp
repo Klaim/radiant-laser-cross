@@ -7,7 +7,7 @@ namespace rlc
 
 	void GameStateManager::add( GameStatePtr game_state )
 	{
-		GC_ASSERT_NOT_NULL( game_state.get() );
+		GC_ASSERT_NOT_NULL( game_state );
 		GC_ASSERT(  ! game_state->name().empty() , "Tried to register a game state with an empty name!" );
 
 		if( m_state_index.find( game_state->name() ) != m_state_index.end() )
@@ -35,12 +35,12 @@ namespace rlc
 		
 		GameStatePtr next_state = find_it->second;
 		
-		GC_ASSERT_NOT_NULL( next_state.get() );
+		GC_ASSERT_NOT_NULL( next_state );
 
 		RLC_LOG << "---------------------------------------------------------";
 		RLC_LOG << "-- Switching to " << next_state->name() << " state ... -- ";
 		
-		if( m_current_state.get() != nullptr )
+		if( m_current_state != nullptr )
 		{
 			//end the current state
 			RLC_LOG << "Ending state " << m_current_state-> name() << " ...";
@@ -64,7 +64,7 @@ namespace rlc
 
 	void GameStateManager::update()
 	{
-		if( m_current_state.get() != nullptr )
+		if( m_current_state != nullptr )
 		{
 			m_current_state->update();
 		}
@@ -72,7 +72,7 @@ namespace rlc
 
 	void GameStateManager::render()
 	{
-		if( m_current_state.get() != nullptr )
+		if( m_current_state != nullptr )
 		{
 			m_current_state->render();
 		}

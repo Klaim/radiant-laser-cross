@@ -16,16 +16,14 @@ namespace rlc
 
 	}
 
-
-
 	void GameSession::begin()
 	{
-		m_scene.add( &m_player.ship() );
+		m_scene.add( m_player.ship() );
 	}
 
 	void GameSession::end()
 	{
-		m_scene.remove( &m_player.ship() );
+		m_scene.remove( m_player.ship() );
 	}
 
 

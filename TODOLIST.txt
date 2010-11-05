@@ -15,7 +15,9 @@
 		1.6.1. Avoid raw pointers in the interface.
 		1.6.2. Add a way to apply a (lambda) function to all children.
 		1.6.3. Updating an entity should update the children too (maybe with option to not update them)
-		1.6.4. Child search? In depth? Necessary?
+		1.6.4. Child search? In depth? Necessary? - seems that yes, see scripting 4.3.3
+		1.6.5. Children should have only one parent ever, and should know about it.
+			1.6.5.1. add() and remove() should take a smart pointer instead because the group have to become an owner.
 	1.7. Move the escape key to somewhere upper than GameScene to make it valid in all states.
 	1.8. Game Scene.
 		1.8.1. Add plan-ordered sorting of entities (for rendering).
@@ -28,15 +30,19 @@
 	1.12. Movement should be at constant speed - diagonals too.
 	1.13. Ship => GunShip ? Gunship : public Ship ? Or rename Ship?
 	1.14. Bullet colors should be set by the gun instance, not the bullet type.
+		1.14.1. Bullet shape, etc. should be set by the bullet type...
+	1.15. Bullet manager initialization should be with a constant taken from the gameplay (hard) configuration.
 	
-
-
-
 2. Collision system
 	2.1. Find a good 2D collision-only library
 
 3. Ennemy system
 	3.1. Define Color codes
+		3.1.1. 	Blue = Background/Walls 
+				White = Generic ennemy : can take any bullet
+				Hot colors = Ennemies/bullets : everything that can take a color
+				Green = Life & Bonus
+	3.2. Life system - more for bosses and hard ennemies.
 	
 4. Scripting system
 	4.1. Integrate ChaiScript - setup running engine and global organization

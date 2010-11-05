@@ -131,12 +131,9 @@ namespace gcore
 		if(m_entry.empty())return;
 
 		//store the entry and move the older entry if not enough place:
-		/*if( m_lastEntries.size() + 1 > m_maxEntries )
-			m_lastEntries.erase( m_lastEntries.begin() );*/
-
 		m_lastEntries.push_back(m_entry);
 
-		if( m_activeCommand.get() != nullptr )
+		if( m_activeCommand != nullptr )
 		{
 			// there is already an active command : just send it the parameters!
 			parseParameters( m_entry, m_paramList, m_activeCommand->paramSeparator() );
@@ -203,7 +200,7 @@ namespace gcore
 	void Console::addCommand( const ConsoleCommandPtr& command )
 	{
 		GC_ASSERT( !command->name().empty(), "Tried to add an unnamed ConsoleCommand!" );
-		GC_ASSERT( &command != nullptr && command.get() != nullptr , "Tried to add a null ConsoleCommand!");
+		GC_ASSERT( &command != nullptr && command != nullptr , "Tried to add a null ConsoleCommand!");
 		m_commandIndex[ command->name() ] = command;
 	}
 
@@ -291,7 +288,7 @@ namespace gcore
 
 	void Console::executeActiveCommand()
 	{
-		GC_ASSERT( m_activeCommand.get() != nullptr, "Tried to call a null active command!" );
+		GC_ASSERT( m_activeCommand != nullptr, "Tried to call a null active command!" );
 
 		//execute the command :
 		const bool keepActive = m_activeCommand->execute((*this),m_paramList);

@@ -18,7 +18,7 @@ namespace rlc
 
 	void Bullet::fire( const BulletTypePtr& bullet_type, Position start_pos, Direction start_dir )
 	{
-		GC_ASSERT_NOT_NULL( bullet_type.get() );
+		GC_ASSERT_NOT_NULL( bullet_type );
 
 		m_type = bullet_type;
 
@@ -26,12 +26,12 @@ namespace rlc
 		m_velocity = start_dir * bullet_type->bullet_speed();
 
 		m_alive = true;
-		GameScene::instance().add( this );
+		GameScene::instance().add( *this );
 	}
 
 	void Bullet::do_update()
 	{
-		if( !m_type.get() )
+		if( !m_type )
 		{
 			die();
 			return;
@@ -54,7 +54,7 @@ namespace rlc
 
 	void Bullet::do_render()
 	{
-		if( !m_type.get() )
+		if( !m_type )
 		{
 			die();
 			return;
@@ -78,7 +78,7 @@ namespace rlc
 	{
 		m_alive = false;
 
-		GameScene::instance().remove( this );
+		GameScene::instance().remove( *this );
 
 		m_type.reset();
 		m_velocity = Velocity();
