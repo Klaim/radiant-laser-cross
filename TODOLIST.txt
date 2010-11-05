@@ -57,6 +57,8 @@
 	2.3. Setup a collision callback system (or something similar).
 	2.4. Setup collision rules!
 		2.4.1. Explosions?
+			2.4.1.1. Animated circles?
+			2.4.1.2. Particles?
 		2.4.2. Color animation system?
 
 3. Ennemy system
@@ -82,6 +84,8 @@
 		4.4.2. Level informations - displayed at level start
 		4.4.3. Load and run a level
 		4.4.4. Level listing.
+		4.4.5. Background roll control.
+		4.4.6. Unique level version identification system - how to do this? 
 	
 5. Audio system
 	5.1. Setup audio system of SFML
@@ -97,6 +101,20 @@
 	7.2. When paused, add a "1 step" command.
 	
 8. Move on the public repo.
+
+9. Background rolling
+	9.1. Automatic background shapes in depth random generation.
+	9.2. Particle shapes, speed, spawn position probabilities...
+
+10. Game Menu
+	10.1. Start Menu
+		10.1.1. Config?
+		10.1.2. Run a game session (fixed lifes count?).
+		
+11. High score system
+	11.1. Local High Score
+	11.2. Online World High Score
+	11.3. High score have to be Level dependant.
 	
 - DONE ------------------------------------------------------------
 
