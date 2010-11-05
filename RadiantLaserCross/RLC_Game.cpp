@@ -15,11 +15,29 @@
 
 namespace rlc
 {
+	using namespace config;
+
+	class Game::System : boost::noncopyable
+	{
+	public:
+
+		sf::RenderWindow& window() { return m_window; }
+		sf::Clock& clock() { return m_clock; }
+
+		System()
+			: m_window( sf::VideoMode( SCREEN_WIDTH, SCREEN_HEIGHT ), GAME_TITLE, sf::Style::Titlebar | sf::Style::Close )
+			, m_clock()
+		{}
+
+	private:
+
+		sf::RenderWindow m_window;
+		sf::Clock m_clock;
+
+	};
 	
 	Game::Game()
 		: m_running( false )
-		, m_window()
-		, m_clock()
 		, m_last_tick_time( 0.0f )
 	{
 		
@@ -32,14 +50,13 @@ namespace rlc
 
 	void Game::run()
 	{
-		RLC_LOG << "Starting " << config::GAME_TITLE ;
+		RLC_LOG << "Starting " << GAME_TITLE ;
 
 		initialize();
 
-		GC_ASSERT_NOT_NULL( m_window );
 		m_running = true;
 
-		while( is_running() && m_window->IsOpened() )
+		while( is_running() && display().IsOpened() )
 		{
 			update();
 			render();
@@ -50,19 +67,12 @@ namespace rlc
 
 	void Game::initialize()
 	{
-		using namespace config;
-
 		RLC_LOG << "Initialization...";
 
 		load_config();
 
-		// first create the window
-		GC_ASSERT_NULL( m_window );
-		m_window.reset( new sf::RenderWindow( sf::VideoMode( SCREEN_WIDTH, SCREEN_HEIGHT ), GAME_TITLE, sf::Style::Titlebar | sf::Style::Close ) );
-		
-		// then get the clock
-		GC_ASSERT_NULL( m_clock );
-		m_clock.reset( new sf::Clock() );
+		// first create the system resources
+		m_system.reset( new System() );
 
 		// now create the states
 		m_gamestate_manager.add( boost::make_shared<GameSession>() );
@@ -78,30 +88,28 @@ namespace rlc
 	{
 		RLC_LOG << "Termination...";
 
-		m_clock.reset();
-		m_window.reset();
-
+		m_system.reset();
+		
 		RLC_LOG << "Terminated!";
 	}
 
 
 	void Game::update()
 	{
-		GC_ASSERT_NOT_NULL( m_window );
-		GC_ASSERT_NOT_NULL( m_clock );
+		GC_ASSERT_NOT_NULL( m_system );
 
 		// process window events
 		sf::Event Event;
-		while ( m_window->GetEvent(Event) )
+		auto& window = display();
+		while ( window.GetEvent(Event) )
 		{
 			// Close window : exit
 			if (Event.Type == sf::Event::Closed)
-				m_window->Close();
+				window.Close();
 		}
 
 		// perform each tick that passed since last tick!
-
-		const float time_since_start = m_clock->GetElapsedTime();
+		const float time_since_start = m_system->clock().GetElapsedTime();
 		float time_since_last_tick = time_since_start - m_last_tick_time;
 
 		while( time_since_last_tick > config::TICK_TIME )
@@ -116,8 +124,7 @@ namespace rlc
 
 	void Game::one_game_tick()
 	{
-		GC_ASSERT_NOT_NULL( m_window );
-		GC_ASSERT_NOT_NULL( m_clock );
+		GC_ASSERT_NOT_NULL( m_system );
 
 		m_gamestate_manager.update();
 		
@@ -125,19 +132,26 @@ namespace rlc
 
 	void Game::render()
 	{
-		GC_ASSERT_NOT_NULL( m_window );
+		GC_ASSERT_NOT_NULL( m_system );
 
 		// graphic rendering
 
-		m_window->Clear( sf::Color( 0, 0, 80, 0 ) );
+		auto& window = display();
+		window.Clear( sf::Color( 0, 0, 80, 0 ) );
 
 		m_gamestate_manager.render();
 
-		m_window->Display();
+		window.Display();
 
 		// audio rendering
 
 		// TODO : add audio update here
+	}
+
+	sf::RenderWindow& Game::display()
+	{
+		GC_ASSERT_NOT_NULL( m_system ); 
+		return m_system->window();
 	}
 
 
