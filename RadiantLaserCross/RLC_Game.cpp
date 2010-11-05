@@ -18,8 +18,8 @@ namespace rlc
 	
 	Game::Game()
 		: m_running( false )
-		, m_window( nullptr )
-		, m_clock( nullptr )
+		, m_window()
+		, m_clock()
 		, m_last_tick_time( 0.0f )
 	{
 		
@@ -58,17 +58,17 @@ namespace rlc
 
 		// first create the window
 		GC_ASSERT_NULL( m_window );
-		m_window = new sf::RenderWindow( sf::VideoMode( SCREEN_WIDTH, SCREEN_HEIGHT ), GAME_TITLE, sf::Style::Titlebar | sf::Style::Close );
+		m_window.reset( new sf::RenderWindow( sf::VideoMode( SCREEN_WIDTH, SCREEN_HEIGHT ), GAME_TITLE, sf::Style::Titlebar | sf::Style::Close ) );
 		
 		// then get the clock
 		GC_ASSERT_NULL( m_clock );
-		m_clock = new sf::Clock();
+		m_clock.reset( new sf::Clock() );
 
 		// now create the states
 		m_gamestate_manager.add( boost::make_shared<GameSession>() );
 		
 		// begin the first state
-		m_gamestate_manager.switch_to( GAMESTATE_GAME_SESSION );
+		m_gamestate_manager.switch_to( names::GAMESTATE_GAME_SESSION );
 
 		RLC_LOG << "Initialization done.";
 	}
@@ -78,11 +78,8 @@ namespace rlc
 	{
 		RLC_LOG << "Termination...";
 
-		delete m_clock;
-		m_clock = nullptr;
-
-		delete m_window;
-		m_window = nullptr;
+		m_clock.reset();
+		m_window.reset();
 
 		RLC_LOG << "Terminated!";
 	}
