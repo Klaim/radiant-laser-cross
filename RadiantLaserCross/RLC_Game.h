@@ -13,7 +13,6 @@
 namespace sf
 {
 	class RenderWindow;
-	class Clock;
 }
 
 namespace rlc
@@ -35,7 +34,7 @@ namespace rlc
 		
 		GameStateManager& gamestate_manager() { return m_gamestate_manager; }
 
-		sf::RenderWindow& display() { GC_ASSERT_NOT_NULL( m_window ); return *m_window; }
+		sf::RenderWindow& display();
 
 	private:
 
@@ -47,9 +46,9 @@ namespace rlc
 		gcore::LogManager m_log_manager;
 		GameStateManager m_gamestate_manager;
 
-		boost::scoped_ptr<sf::RenderWindow> m_window;
-		boost::scoped_ptr<sf::Clock> m_clock;
-
+		class System;
+		boost::scoped_ptr< System > m_system;
+		
 		float m_last_tick_time;
 
 		bool m_running;
