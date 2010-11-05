@@ -204,17 +204,17 @@ namespace gcore
 #endif
 
 
-#define GC_ASSERT_NOT_NULL( expr ) GC_ASSERT( (expr) != nullptr , "Assertion failed! " #expr " is null!" );
-#define GC_ASSERT_NULL( expr ) GC_ASSERT( (expr) == nullptr , "Assertion failed! " #expr " is not null!" );
+#define GC_ASSERT_NOT_NULL( expr ) GC_ASSERT( (expr) , "Assertion failed! " #expr " is null!" );
+#define GC_ASSERT_NULL( expr ) GC_ASSERT( !(expr) , "Assertion failed! " #expr " is not null!" );
 
-#define GC_ASSERT_NOT_NULL_OR( expr ) GC_ASSERT_OR( (expr) != nullptr , "Assertion failed! " #expr " is null!" )
-#define GC_ASSERT_NULL_OR( expr ) GC_ASSERT_OR( (expr) == nullptr , "Assertion failed! " #expr " is not null!" )
+#define GC_ASSERT_NOT_NULL_OR( expr ) GC_ASSERT_OR( (expr) , "Assertion failed! " #expr " is null!" )
+#define GC_ASSERT_NULL_OR( expr ) GC_ASSERT_OR( !(expr) , "Assertion failed! " #expr " is not null!" )
 
-#define GC_ASSERT_NOT_NULL_RETURN( expr ) GC_ASSERT_RETURN( (expr) != nullptr , "Assertion failed! " #expr " is null!" )
-#define GC_ASSERT_NULL_RETURN( expr ) GC_ASSERT_RETURN( (expr) == nullptr , "Assertion failed! " #expr " is not null!" )
+#define GC_ASSERT_NOT_NULL_RETURN( expr ) GC_ASSERT_RETURN( (expr) , "Assertion failed! " #expr " is null!" )
+#define GC_ASSERT_NULL_RETURN( expr ) GC_ASSERT_RETURN( !(expr) "Assertion failed! " #expr " is not null!" )
 
-#define GC_ASSERT_NOT_NULL_RETURN_VALUE( expr, return_value ) GC_ASSERT_RETURN_VALUE( (expr) != nullptr , "Assertion failed! " #expr " is null!", return_value )
-#define GC_ASSERT_NULL_RETURN_VALUE( expr, return_value ) GC_ASSERT_RETURN_VALUE( (expr) == nullptr , "Assertion failed! " #expr " is not null!", return_value )
+#define GC_ASSERT_NOT_NULL_RETURN_VALUE( expr, return_value ) GC_ASSERT_RETURN_VALUE( (expr) , "Assertion failed! " #expr " is null!", return_value )
+#define GC_ASSERT_NULL_RETURN_VALUE( expr, return_value ) GC_ASSERT_RETURN_VALUE( !(expr) , "Assertion failed! " #expr " is not null!", return_value )
 
 
 #endif
