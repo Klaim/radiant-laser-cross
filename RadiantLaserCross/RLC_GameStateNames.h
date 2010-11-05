@@ -6,7 +6,11 @@
 
 namespace rlc
 {
-	extern const std::string GAMESTATE_GAME_SESSION;
+	namespace names
+	{
+		extern const std::string GAMESTATE_GAME_SESSION;
+	}
+	
 }
 
 #endif

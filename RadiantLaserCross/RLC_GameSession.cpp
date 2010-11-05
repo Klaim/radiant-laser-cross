@@ -11,7 +11,7 @@ namespace rlc
 {
 
 	GameSession::GameSession()
-		: GameState( GAMESTATE_GAME_SESSION )
+		: GameState( names::GAMESTATE_GAME_SESSION )
 	{
 
 	}
