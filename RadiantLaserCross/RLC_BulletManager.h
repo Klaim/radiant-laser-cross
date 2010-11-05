@@ -14,7 +14,7 @@ namespace rlc
 {
 	namespace config
 	{
-		static const std::size_t MAX_BULLETS = 300;
+		static const std::size_t MAX_BULLETS = 1024;
 	}
 
 
