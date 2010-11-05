@@ -1,0 +1,66 @@
+= Radiant Laser Cross TODO List =
+=================================
+
+- TODO ------------------------------------------------------------
+
+1. Refactoring
+	1.1. First pass for planning
+	1.2. No raw pointer in containers and owner members.
+	1.3. Move gameplay constants in separate header/cpp and namespace.
+	1.4. Add comments. At least on classes and function members.
+	1.5. State management refactoring.
+		1.5.1. State managers should be able to be used as state.
+		1.5.2. See if using boost::msm wouldn't be easy?
+	1.6. Refactor GameEntityGroup.
+		1.6.1. Avoid raw pointers in the interface.
+		1.6.2. Add a way to apply a (lambda) function to all children.
+		1.6.3. Updating an entity should update the children too (maybe with option to not update them)
+		1.6.4. Child search? In depth? Necessary?
+	1.7. Move the escape key to somewhere upper than GameScene to make it valid in all states.
+	1.8. Game Scene.
+		1.8.1. Add plan-ordered sorting of entities (for rendering).
+	1.9. Refactor GameEntity to make it more general (see GameEntity::core_shape())
+	1.10. Replace for loop in containers by std::for_each( lamda ) where useful.
+	1.11. Make the game space/size independant from the resolution
+		1.11.1. Conversion system to keep the game graphic scale independant from screen resolution.
+		1.11.2. Limit minimal screen resolution.
+		1.11.3. Apply conversion to all game coordinates and game shapes scale to screen.
+	1.12. Movement should be at constant speed - diagonals too.
+	1.13. Ship => GunShip ? Gunship : public Ship ? Or rename Ship?
+	1.14. Bullet colors should be set by the gun instance, not the bullet type.
+	
+
+
+
+2. Collision system
+	2.1. Find a good 2D collision-only library
+
+3. Ennemy system
+	3.1. Define Color codes
+	
+4. Scripting system
+	4.1. Integrate ChaiScript - setup running engine and global organization
+	4.2. Make Guns scriptable
+		4.2.1. Bullet type
+		4.2.2. Gun type
+		4.2.3. 
+	4.3. Make Ship scriptable
+		4.3.1. Types : life, guns types, initial guns, default behaviour, etc.
+		4.3.2. Custom Behaviours : move, fire, transform
+		4.3.3. Can access his gun and children entities.
+	4.4. Levels
+		4.4.1. Spawning : time - ship instance		
+	
+5. Audio system
+	5.1. Setup audio system of SFML
+	5.2. Find/create sounds
+	5.3. Find/create music
+	
+6. Cross platform
+	6.1. Replace VS projects by CMake
+	6.2. Build and run on Ubuntu (gcc/codeblocks)
+
+
+
+- DONE ------------------------------------------------------------
+
