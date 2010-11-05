@@ -46,35 +46,41 @@ namespace rlc
 
 	}
 
+	void GameEntityGroup::for_each( const std::function< void( GameEntity* ) >& function )
+	{
+		Entities entities( m_entities ); // do this on a copy list
+		
+		std::for_each( entities.begin(), entities.end(), [&function]( GameEntity* game_entity ) // lambda are pure funky awesomeness of everlove
+		{
+			GC_ASSERT_NOT_NULL( game_entity );
+			function( game_entity );
+		});
+	}
+
 	void GameEntityGroup::update_children()
 	{
 		Entities entities( m_entities ); // do this on a copy list
-
-		for( auto it = entities.begin(); it != entities.end(); ++it )
-		{
-			GameEntity* game_entity = *it;
-			GC_ASSERT_NOT_NULL( game_entity );
-
-			game_entity->update();
-		}
+		for_each( []( GameEntity* game_entity ) { game_entity->update(); }); 
 	}
 
 	void GameEntityGroup::render_children()
 	{
-		Entities entities( m_entities ); // do this on a copy list
+		// make sure entities will be displayed in the plan order
+		if( m_need_sort )
+			sort();
 
-		for( auto it = entities.begin(); it != entities.end(); ++it )
-		{
-			GameEntity* game_entity = *it;
-			GC_ASSERT_NOT_NULL( game_entity );
-
-			game_entity->render();
-		}
+		for_each( []( GameEntity* game_entity ) { game_entity->render(); });
 	}
 
 	void GameEntityGroup::sort()
 	{
-		// TODO : sort by depth
+		// sort by plan depth
+		std::sort( m_entities.begin(), m_entities.end(), []( GameEntity* left_entity, GameEntity* right_entity )-> bool
+		{
+			GC_ASSERT_NOT_NULL( left_entity ); 
+			GC_ASSERT_NOT_NULL( right_entity ); 
+			return left_entity->plan_idx() < right_entity->plan_idx();
+		});
 	}
 
 }
