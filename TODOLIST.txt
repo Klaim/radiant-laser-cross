@@ -32,6 +32,8 @@
 	1.14. Bullet colors should be set by the gun instance, not the bullet type.
 		1.14.1. Bullet shape, etc. should be set by the bullet type...
 	1.15. Bullet manager initialization should be with a constant taken from the gameplay (hard) configuration.
+	1.16. Look for generation of graphics in the game loop and replace them by using predefined shapes/boxes/etc.
+	
 	
 2. Collision system
 	2.1. Find a good 2D collision-only library
@@ -66,7 +68,9 @@
 	6.1. Replace VS projects by CMake
 	6.2. Build and run on Ubuntu (gcc/codeblocks)
 
-
-
+7. Utility & Debug
+	7.1. Add a (debug) pause command.
+	7.2. When paused, add a "1 step" command.
+	
 - DONE ------------------------------------------------------------
 
