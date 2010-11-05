@@ -2,8 +2,6 @@
 #define RLC_GAME_H
 #pragma once
 
-#include <boost/scop>
-
 #include "GC_LogManager.h"
 #include "GC_Log.h"
 #include "GC_Singleton.h"
