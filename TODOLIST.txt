@@ -4,7 +4,6 @@
 - TODO ------------------------------------------------------------
 
 1. Refactoring
-	1.1. First pass for planning
 	1.2. No raw pointer in containers and owner members.
 	1.3. Move gameplay constants in separate header/cpp and namespace.
 	1.4. Add comments. At least on classes and function members.
@@ -48,12 +47,17 @@
 		1.18.2. Does Guns have to be game entities? Can't they by abstract things? Not sure... Or their cannons are abstracts?
 		1.18.3. GunSlot shouldn't be jsut a (smart) pointer, it should be a class with some is_gunned() function or something like that.
 		1.18.4. WTF is m_cannon ??? m_current_cannon seems to be used instead.
+	1.19. Gameplay?
+		1.19.1. 8 directions fire? Allow diagonal orientations?
 		
 	
 2. Collision system
 	2.1. Find a good 2D collision-only library
 	2.2. Setup collideable objects for game entities that need it.
 	2.3. Setup a collision callback system (or something similar).
+	2.4. Setup collision rules!
+		2.4.1. Explosions?
+		2.4.2. Color animation system?
 
 3. Ennemy system
 	3.1. Define Color codes
@@ -96,3 +100,7 @@
 	
 - DONE ------------------------------------------------------------
 
+1. Refactoring
+	1.1. First pass for planning
+
+	
