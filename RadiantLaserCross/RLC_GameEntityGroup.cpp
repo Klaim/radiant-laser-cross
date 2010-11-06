@@ -60,7 +60,7 @@ namespace rlc
 	void GameEntityGroup::update_children()
 	{
 		Entities entities( m_entities ); // do this on a copy list
-		for_each( []( GameEntity* game_entity ) { game_entity->update(); }); 
+		for_each( []( GameEntity& game_entity ) { game_entity.update(); }); 
 	}
 
 	void GameEntityGroup::render_children()
@@ -69,7 +69,7 @@ namespace rlc
 		if( m_need_sort )
 			sort();
 
-		for_each( []( GameEntity* game_entity ) { game_entity->render(); });
+		for_each( []( GameEntity& game_entity ) { game_entity.render(); });
 	}
 
 	void GameEntityGroup::sort()

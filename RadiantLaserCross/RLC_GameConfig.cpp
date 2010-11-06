@@ -9,7 +9,7 @@
 
 namespace rlc
 {
-	// TODO : make it two singleton classes : one with user-defined config (can change) and one for gameplay config (with read-only access).
+	
 	namespace config
 	{
 		const std::string GAME_TITLE = "Radiant Laser Cross";
