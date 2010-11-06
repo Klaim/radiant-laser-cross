@@ -26,7 +26,7 @@ namespace rlc
 	
 	protected:	
 		
-		void for_each( const std::function< void( GameEntity* ) >& function );
+		void for_each( const std::function< void( GameEntity& ) >& function );
 
 		void update_children();
 		void render_children();
