@@ -31,6 +31,8 @@ namespace rlc
 		
 		BulletPool< config::MAX_BULLETS > m_bullets_pool;
 
+		// TODO : add bullet type management to automatically find what type of bullet to fire from bullet id
+
 	};
 	
 }

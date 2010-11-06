@@ -46,14 +46,14 @@ namespace rlc
 
 	}
 
-	void GameEntityGroup::for_each( const std::function< void( GameEntity* ) >& function )
+	void GameEntityGroup::for_each( const std::function< void( GameEntity& ) >& function )
 	{
 		Entities entities( m_entities ); // do this on a copy list
 		
 		std::for_each( entities.begin(), entities.end(), [&function]( GameEntity* game_entity ) // lambda are pure funky awesomeness of everlove
 		{
 			GC_ASSERT_NOT_NULL( game_entity );
-			function( game_entity );
+			function( *game_entity );
 		});
 	}
 
