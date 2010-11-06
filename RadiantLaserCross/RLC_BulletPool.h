@@ -1,5 +1,6 @@
 #ifndef RLC_BULLETPOOL_H
 #define RLC_BULLETPOOL_H
+#pragma once 
 
 #include <array>
 #include <algorithm>
